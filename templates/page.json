@@ -304,24 +304,79 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "button_kQLBtg": {
-              "type": "button",
-              "name": "t:names.button",
+            "custom_liquid_FWkKCk": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
               "settings": {
-                "label": "CHOOSE NOW",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "button",
-                "custom_button_background": "{{ settings.color_palette.foreground }}",
-                "custom_button_text": "{{ settings.color_palette.background }}",
-                "custom_button_border": "{{ settings.color_palette.background }}",
-                "link_text_color": "",
-                "width": "fit-content",
-                "custom_width": 55,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
+                "custom_liquid": "<a href=\"#\"\n   style=\"\n      display: inline-flex;\n      align-items: center;\n      justify-content: space-between;\n      width: 180px;\n      height: 38px;\n      padding: 0 12px 0 18px;\n      box-sizing: border-box;\n      background: #fff200;\n      color: #000;\n      margin: 0px 0 0px 0;\n      text-decoration: none;\n      font-family: Arial, sans-serif;\n      font-size: 10px;\n      font-weight: 500;\n      letter-spacing: 0.2px;\n      transition: all 0.3s ease;\n   \"\n   onmouseover=\"\n      this.style.background='#000';\n      this.style.color='#fff';\n      this.style.transform='translateY(-2px)';\n   \"\n   onmouseout=\"\n      this.style.background='#fff200';\n      this.style.color='#000';\n      this.style.transform='translateY(0)';\n   \"\n>\n   <span>CHOOSE GIFT</span>\n\n   <span style=\"\n      font-size: 18px;\n      font-weight: 300;\n      line-height: 1;\n      margin-left: 8px;\n   \">→</span>\n</a>"
               },
               "blocks": {}
+            },
+            "group_BTVyzm": {
+              "type": "group",
+              "name": "t:names.group",
+              "disabled": true,
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 6,
+                "width": "custom",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 51,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "button_HeiCEF": {
+                  "type": "button",
+                  "name": "t:names.button",
+                  "disabled": true,
+                  "settings": {
+                    "label": "Shop now",
+                    "link": "shopify://collections/all",
+                    "open_in_new_tab": false,
+                    "style_class": "button",
+                    "custom_button_background": "{{ settings.color_palette.foreground }}",
+                    "custom_button_text": "{{ settings.color_palette.background }}",
+                    "custom_button_border": "{{ settings.color_palette.background }}",
+                    "link_text_color": "",
+                    "width": "custom",
+                    "custom_width": 20,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "button_HeiCEF"
+              ]
             },
             "text_dcVBHt": {
               "type": "text",
@@ -351,7 +406,8 @@
             }
           },
           "block_order": [
-            "button_kQLBtg",
+            "custom_liquid_FWkKCk",
+            "group_BTVyzm",
             "text_dcVBHt"
           ]
         }
@@ -388,232 +444,6 @@
         "border_opacity": 100,
         "border_color": "",
         "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
-    "slideshow_PGczpi": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_6HJQAH": {
-          "type": "_slide",
-          "settings": {
-            "media_type_1": "image",
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "background_color": "",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "padding-block-start": 48,
-            "padding-block-end": 48,
-            "padding-inline-start": 48,
-            "padding-inline-end": 48
-          },
-          "blocks": {
-            "text_hzULgg": {
-              "type": "text",
-              "name": "t:names.heading",
-              "settings": {
-                "text": "<h3>New arrivals</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_w4zTP3": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Introducing our latest products, made especially for the season. Shop your favorites before they're gone!</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 20,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "button_Dq7iCP": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "button",
-                "custom_button_background": "{{ settings.color_palette.foreground }}",
-                "custom_button_text": "{{ settings.color_palette.background }}",
-                "custom_button_border": "{{ settings.color_palette.background }}",
-                "link_text_color": "",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_hzULgg",
-            "text_w4zTP3",
-            "button_Dq7iCP"
-          ]
-        },
-        "slide_pFaMVG": {
-          "type": "_slide",
-          "settings": {
-            "media_type_1": "image",
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "background_color": "",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "padding-block-start": 48,
-            "padding-block-end": 48,
-            "padding-inline-start": 48,
-            "padding-inline-end": 48
-          },
-          "blocks": {
-            "text_Ait9Xp": {
-              "type": "text",
-              "name": "t:names.heading",
-              "settings": {
-                "text": "<h2>Bestsellers</h2>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_XfYWeU": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Discover the bestsellers that have captured the hearts of our customers with their perfect blend of functionality and style.</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 20,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "button_wt9xQy": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "button",
-                "custom_button_background": "{{ settings.color_palette.foreground }}",
-                "custom_button_text": "{{ settings.color_palette.background }}",
-                "custom_button_border": "{{ settings.color_palette.background }}",
-                "link_text_color": "",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_Ait9Xp",
-            "text_XfYWeU",
-            "button_wt9xQy"
-          ]
-        }
-      },
-      "block_order": [
-        "slide_6HJQAH",
-        "slide_pFaMVG"
-      ],
-      "disabled": true,
-      "name": "t:names.slideshow_full_frame",
-      "settings": {
-        "display_mode": "full_frame",
-        "section_width": "full-width",
-        "full_frame_on_mobile": false,
-        "slideshow_gap": 12,
-        "corner_radius": 0,
-        "slide_height": "medium",
-        "content_position": "on-media",
-        "background_color": "",
-        "icons_style": "arrows_large",
-        "icons_shape": "none",
-        "slideshow_controls_style": "dots",
-        "autoplay": false,
-        "autoplay_speed": 4,
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -752,42 +582,11 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
-                },
-                "custom_liquid_Teb9Hw": {
-                  "type": "custom-liquid",
-                  "name": "t:names.custom_liquid",
-                  "disabled": true,
-                  "settings": {
-                    "custom_liquid": "<a href=\"#\"\n   style=\"\n      display: inline-flex;\n      align-items: center;\n      justify-content: space-between;\n      width: 180px;\n      height: 38px;\n      padding: 0 12px 0 18px;\n      box-sizing: border-box;\n      background: #fff200;\n      color: #000;\n      margin: 30px 0 30px 0;\n      text-decoration: none;\n      font-family: Arial, sans-serif;\n      font-size: 10px;\n      font-weight: 500;\n      letter-spacing: 0.2px;\n      transition: all 0.3s ease;\n   \"\n   onmouseover=\"\n      this.style.background='#000';\n      this.style.color='#fff';\n      this.style.transform='translateY(-2px)';\n   \"\n   onmouseout=\"\n      this.style.background='#fff200';\n      this.style.color='#000';\n      this.style.transform='translateY(0)';\n   \"\n>\n   <span>CHOOSE GIFT</span>\n\n   <span style=\"\n      font-size: 18px;\n      font-weight: 300;\n      line-height: 1;\n      margin-left: 8px;\n   \">→</span>\n</a>"
-                  },
-                  "blocks": {}
-                },
-                "button_dC8qMb": {
-                  "type": "button",
-                  "name": "t:names.button",
-                  "disabled": true,
-                  "settings": {
-                    "label": "Shop now",
-                    "link": "shopify://collections/all",
-                    "open_in_new_tab": false,
-                    "style_class": "button",
-                    "custom_button_background": "{{ settings.color_palette.foreground }}",
-                    "custom_button_text": "{{ settings.color_palette.background }}",
-                    "custom_button_border": "{{ settings.color_palette.background }}",
-                    "link_text_color": "",
-                    "width": "custom",
-                    "custom_width": 20,
-                    "width_mobile": "fit-content",
-                    "custom_width_mobile": 100
-                  },
-                  "blocks": {}
                 }
               },
               "block_order": [
                 "text_qPMNXh",
-                "text_rdHQ7U",
-                "custom_liquid_Teb9Hw",
-                "button_dC8qMb"
+                "text_rdHQ7U"
               ]
             },
             "group_H9bFbB": {
@@ -911,7 +710,6 @@
     "main",
     "section_FrrKKQ",
     "section_tnaNdn",
-    "slideshow_PGczpi",
     "hero_zJKBrF"
   ]
 }

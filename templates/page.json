@@ -277,7 +277,7 @@
             "vertical_alignment_flex_direction_column": "center",
             "gap": 0,
             "width": "custom",
-            "custom_width": 27,
+            "custom_width": 25,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fill",
@@ -317,7 +317,7 @@
                 "custom_button_border": "{{ settings.color_palette.background }}",
                 "link_text_color": "",
                 "width": "fit-content",
-                "custom_width": 50,
+                "custom_width": 55,
                 "width_mobile": "fit-content",
                 "custom_width_mobile": 100
               },

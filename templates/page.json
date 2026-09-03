@@ -160,9 +160,9 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
-            "padding-block-start": 10,
+            "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 30,
+            "padding-inline-start": 50,
             "padding-inline-end": 0
           },
           "blocks": {

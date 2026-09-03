@@ -753,9 +753,18 @@
                   },
                   "blocks": {}
                 },
+                "custom_liquid_Teb9Hw": {
+                  "type": "custom-liquid",
+                  "name": "t:names.custom_liquid",
+                  "settings": {
+                    "custom_liquid": "<a href=\"#\"\n   style=\"\n      display: inline-flex;\n      align-items: center;\n      justify-content: space-between;\n      width: 180px;\n      height: 38px;\n      padding: 0 12px 0 18px;\n      box-sizing: border-box;\n      background: #fff200;\n      color: #000;\n      margin-left: 30px;\n      text-decoration: none;\n      font-family: Arial, sans-serif;\n      font-size: 10px;\n      font-weight: 500;\n      letter-spacing: 0.2px;\n      transition: all 0.3s ease;\n   \"\n   onmouseover=\"\n      this.style.background='#000';\n      this.style.color='#fff';\n      this.style.transform='translateY(-2px)';\n   \"\n   onmouseout=\"\n      this.style.background='#fff200';\n      this.style.color='#000';\n      this.style.transform='translateY(0)';\n   \"\n>\n   <span>CHOOSE GIFT</span>\n\n   <span style=\"\n      font-size: 18px;\n      font-weight: 300;\n      line-height: 1;\n      margin-left: 8px;\n   \">→</span>\n</a>"
+                  },
+                  "blocks": {}
+                },
                 "button_dC8qMb": {
                   "type": "button",
                   "name": "t:names.button",
+                  "disabled": true,
                   "settings": {
                     "label": "Shop now",
                     "link": "shopify://collections/all",
@@ -776,123 +785,13 @@
               "block_order": [
                 "text_qPMNXh",
                 "text_rdHQ7U",
+                "custom_liquid_Teb9Hw",
                 "button_dC8qMb"
-              ]
-            },
-            "group_8QqbTq": {
-              "type": "group",
-              "name": "t:names.group",
-              "disabled": true,
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 6,
-                "width": "custom",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "background_color": "",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0,
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 20,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "group_U48Yxb": {
-                  "type": "group",
-                  "name": "t:names.group",
-                  "settings": {
-                    "content_direction": "column",
-                    "vertical_on_mobile": true,
-                    "horizontal_alignment": "flex-start",
-                    "vertical_alignment": "center",
-                    "align_baseline": false,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center",
-                    "gap": 6,
-                    "width": "custom",
-                    "custom_width": 100,
-                    "width_mobile": "fill",
-                    "custom_width_mobile": 100,
-                    "height": "fit",
-                    "custom_height": 100,
-                    "background_media": "none",
-                    "background_color": "",
-                    "video_position": "cover",
-                    "background_image_position": "cover",
-                    "toggle_overlay": false,
-                    "overlay_color": "#00000026",
-                    "overlay_style": "solid",
-                    "gradient_direction": "to top",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_color": "",
-                    "border_radius": 0,
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "placeholder": "",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 20,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {
-                    "button_Bk6fqt": {
-                      "type": "button",
-                      "name": "t:names.button",
-                      "settings": {
-                        "label": "Shop now",
-                        "link": "shopify://collections/all",
-                        "open_in_new_tab": false,
-                        "style_class": "button",
-                        "custom_button_background": "{{ settings.color_palette.foreground }}",
-                        "custom_button_text": "{{ settings.color_palette.background }}",
-                        "custom_button_border": "{{ settings.color_palette.background }}",
-                        "link_text_color": "",
-                        "width": "fit-content",
-                        "custom_width": 100,
-                        "width_mobile": "fit-content",
-                        "custom_width_mobile": 100
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "button_Bk6fqt"
-                  ]
-                }
-              },
-              "block_order": [
-                "group_U48Yxb"
               ]
             }
           },
           "block_order": [
-            "group_8LybEg",
-            "group_8QqbTq"
+            "group_8LybEg"
           ]
         }
       },

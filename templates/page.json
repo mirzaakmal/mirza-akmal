@@ -704,12 +704,24 @@
         "padding-block-start": 40,
         "padding-block-end": 40
       }
+    },
+    "custom_liquid_8yARqm": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<p style=\"text-align: center; background-color: #F5F5F5; width: fcolor: #000000; font-family: jost; weight: 400; style: regular;\">SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>",
+        "background_color": "",
+        "section_width": "full-width",
+        "padding-block-start": 10,
+        "padding-block-end": 10
+      }
     }
   },
   "order": [
     "main",
     "section_FrrKKQ",
     "section_tnaNdn",
-    "hero_zJKBrF"
+    "hero_zJKBrF",
+    "custom_liquid_8yARqm"
   ]
 }

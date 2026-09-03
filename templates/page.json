@@ -283,7 +283,7 @@
             "height": "fill",
             "custom_height": 100,
             "background_media": "none",
-            "background_color": "",
+            "background_color": "rgba(0,0,0,0)",
             "video_position": "cover",
             "background_image_position": "cover",
             "toggle_overlay": false,
@@ -304,111 +304,17 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "custom_liquid_FWkKCk": {
+            "custom_liquid_RNwKGY": {
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "<a href=\"#\"\n   style=\"\n      display: inline-flex;\n      align-items: center;\n      justify-content: space-between;\n      width: 170px;\n      height: 40px;\n      padding: 0 30px 0 30px;\n      box-sizing: border-box;\n      background: #fff200;\n      color: #000;\n      margin: 0px 0 0px 0;\n      text-decoration: none;\n      font-family: Arial, sans-serif;\n      font-size: 10px;\n      font-weight: 500;\n      letter-spacing: 0.2px;\n      transition: all 0.3s ease;\n   \"\n   onmouseover=\"\n      this.style.background='#000';\n      this.style.color='#fff';\n      this.style.transform='translateY(-2px)';\n   \"\n   onmouseout=\"\n      this.style.background='#fff200';\n      this.style.color='#000';\n      this.style.transform='translateY(0)';\n   \"\n>\n   <span>CHOOSE GIFT</span>\n\n   <span style=\"\n      font-size: 18px;\n      font-weight: 300;\n      line-height: 1;\n      margin-left: 8px;\n   \">→</span>\n</a>"
-              },
-              "blocks": {}
-            },
-            "group_BTVyzm": {
-              "type": "group",
-              "name": "t:names.group",
-              "disabled": true,
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 6,
-                "width": "custom",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "background_color": "",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0,
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 51,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "button_HeiCEF": {
-                  "type": "button",
-                  "name": "t:names.button",
-                  "disabled": true,
-                  "settings": {
-                    "label": "Shop now",
-                    "link": "shopify://collections/all",
-                    "open_in_new_tab": false,
-                    "style_class": "button",
-                    "custom_button_background": "{{ settings.color_palette.foreground }}",
-                    "custom_button_text": "{{ settings.color_palette.background }}",
-                    "custom_button_border": "{{ settings.color_palette.background }}",
-                    "link_text_color": "",
-                    "width": "custom",
-                    "custom_width": 20,
-                    "width_mobile": "fit-content",
-                    "custom_width_mobile": 100
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "button_HeiCEF"
-              ]
-            },
-            "text_dcVBHt": {
-              "type": "text",
-              "disabled": true,
-              "settings": {
-                "text": "<h1>TISSO  VISION</h1>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "custom",
-                "font": "var(--font-heading--family)",
-                "font_size": "2rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "<style>\n  .custom-gift-button {\n    position: relative;\n    display: inline-flex;\n    align-items: center;\n    justify-content: space-between;\n    width: 180px;\n    height: 40px;\n    padding: 0 30px 0 30px;\n    box-sizing: border-box;\n\n    background: #fff200;\n    color: #000;\n    text-decoration: none;\n\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 10px;\n    font-weight: 525;\n    letter-spacing: 0.1px;\n\n    overflow: hidden;\n    transition: color 0.3s ease;\n  }\n\n  .custom-gift-button::before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 0;\n    height: 100%;\n    background: #000;\n    transition: width 0.35s ease;\n    z-index: 0;\n  }\n\n  .custom-gift-button:hover::before {\n    width: 100%;\n  }\n\n  .custom-gift-button span {\n    position: relative;\n    z-index: 1;\n  }\n\n  .custom-gift-button:hover {\n    color: #000;\n  }\n\n  .custom-gift-arrow {\n    font-size: 17px;\n    font-weight: normal;\n    transition: transform 0.35s ease;\n  }\n\n  .custom-gift-button:hover .custom-gift-arrow {\n    transform: translateX(4px);\n  }\n</style>\n\n<a href=\"#\" class=\"custom-gift-button\">\n  <span>CHOOSE GIFT</span>\n  <span class=\"custom-gift-arrow\">→</span>\n</a>"
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "custom_liquid_FWkKCk",
-            "group_BTVyzm",
-            "text_dcVBHt"
+            "custom_liquid_RNwKGY"
           ]
         }
       },
@@ -629,48 +535,17 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "custom_liquid_9hyrtJ": {
-                  "type": "custom-liquid",
-                  "name": "t:names.custom_liquid",
-                  "disabled": true,
-                  "settings": {
-                    "custom_liquid": "<a href=\"#\"\n   style=\"\n      display: inline-flex;\n      align-items: center;\n      justify-content: space-between;\n      width: 180px;\n      text-align: center;\n      height: 40px;\n      padding: 0 30px 0 30px;\n      box-sizing: border-box;\n      background: #000;\n      color: #fff;\n      margin: 30px 0 30px 0;\n      text-decoration: none;\n      font-family: Arial, sans-serif;\n      font-size: 12px;\n      font-weight: 540;\n      letter-spacing: 0.2px;\n      transition: all 0.3s ease;\n   \"\n   onmouseover=\"\n      this.style.background='#fff200';\n      this.style.color='#fff';\n      this.style.transform='translateY(-2px)';\n   \"\n   onmouseout=\"\n      this.style.background='#fff200';\n      this.style.color='#000';\n      this.style.transform='translateY(0)';\n   \"\n>\n   <span>SHOP NOW</span>\n\n   <span style=\"\n      font-size: 18px;\n      font-weight: 300;\n      line-height: 1;\n      text-align: center;\n      margin-left: 7px;\n   \">→</span>\n</a>"
-                  },
-                  "blocks": {}
-                },
                 "custom_liquid_VDFDmd": {
                   "type": "custom-liquid",
                   "name": "t:names.custom_liquid",
                   "settings": {
-                    "custom_liquid": "<style>\n  .choose-gift-btn {\n    position: relative;\n    display: inline-flex;\n    align-items: center;\n    justify-content: space-between;\n    width: 180px;\n    height: 35px;\n    padding: 0 30px 0 30px;\n    box-sizing: border-box;\n\n    background: #fff200;\n    color: #000;\n    text-decoration: none;\n\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 10px;\n    font-weight: 500;\n    letter-spacing: 0.1px;\n\n    overflow: hidden;\n    transition: color 0.3s ease;\n  }\n\n  /* Sliding background */\n  .choose-gift-btn::before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: 0;\n\n    width: 0;\n    height: 100%;\n\n    background: #000;\n\n    transition: width 0.35s ease;\n    z-index: 0;\n  }\n\n  /* Slide background from LEFT to RIGHT */\n  .choose-gift-btn:hover::before {\n    width: 100%;\n  }\n\n  /* Keep text and arrow above the background */\n  .choose-gift-btn span {\n    position: relative;\n    z-index: 1;\n  }\n\n  /* Text turns white */\n  .choose-gift-btn:hover {\n    color: #fff;\n  }\n\n  /* Arrow movement */\n  .choose-gift-btn .arrow {\n    font-size: 17px;\n    font-weight: normal;\n    transition: transform 0.35s ease;\n  }\n\n  .choose-gift-btn:hover .arrow {\n    transform: translateX(4px);\n  }\n</style>\n\n<a href=\"#\" class=\"choose-gift-btn\">\n  <span>CHOOSE GIFT</span>\n  <span class=\"arrow\">→</span>\n</a>"
-                  },
-                  "blocks": {}
-                },
-                "button_YmDCQQ": {
-                  "type": "button",
-                  "name": "t:names.button",
-                  "disabled": true,
-                  "settings": {
-                    "label": "Shop now",
-                    "link": "shopify://collections/all",
-                    "open_in_new_tab": false,
-                    "style_class": "button",
-                    "custom_button_background": "{{ settings.color_palette.foreground }}",
-                    "custom_button_text": "{{ settings.color_palette.background }}",
-                    "custom_button_border": "{{ settings.color_palette.background }}",
-                    "link_text_color": "",
-                    "width": "custom",
-                    "custom_width": 20,
-                    "width_mobile": "fit-content",
-                    "custom_width_mobile": 100
+                    "custom_liquid": "<style>\n  .choose-gift-btn {\n    position: relative;\n    display: inline-flex;\n    align-items: center;\n    justify-content: space-between;\n    width: 180px;\n    height: 40px;\n    padding: 0 30px 0 30px;\n    box-sizing: border-box;\n    background: #000;\n    color: #ffff;\n    text-decoration: none;\n\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 10px;\n    font-weight: 525;\n    letter-spacing: 0.1px;\n\n    overflow: hidden;\n    transition: color 0.3s ease;\n  }\n\n  /* Sliding background */\n  .choose-gift-btn::before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 0;\n    height: 100%;\n    background: #fff200;\n   color: #fff200;\n\n    transition: width 0.35s ease;\n    z-index: 0;\n  }\n\n  /* Slide background from LEFT to RIGHT */\n  .choose-gift-btn:hover::before {\n    width: 100%;\n    color: #fff200;\n  }\n\n  /* Keep text and arrow above the background */\n  .choose-gift-btn span {\n    position: relative;\n    \n    z-index: 1;\n  }\n\n  /* Text turns white */\n  .choose-gift-btn:hover {\n    color: #000;\n  }\n\n  /* Arrow movement */\n  .choose-gift-btn .arrow {\n    font-size: 17px;\n    font-weight: normal;\n    transition: transform 0.35s ease;\n  }\n\n  .choose-gift-btn:hover .arrow {\n    transform: translateX(4px);\n  }\n</style>\n\n<a href=\"#\" class=\"choose-gift-btn\">\n  <span>CHOOSE GIFT</span>\n  <span class=\"arrow\">→</span>\n</a>"
                   },
                   "blocks": {}
                 }
               },
               "block_order": [
-                "custom_liquid_9hyrtJ",
-                "custom_liquid_VDFDmd",
-                "button_YmDCQQ"
+                "custom_liquid_VDFDmd"
               ]
             }
           },

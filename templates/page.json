@@ -600,7 +600,7 @@
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
-                "gap": 6,
+                "gap": 0,
                 "width": "custom",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -625,7 +625,7 @@
                 "placeholder": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 51,
+                "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
               "blocks": {

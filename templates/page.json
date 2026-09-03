@@ -169,7 +169,7 @@
             "text_zMLDge": {
               "type": "text",
               "settings": {
-                "text": "<h1>TISSO  VISION</h1>",
+                "text": "<h1><strong>TISSO  VISON</strong></h1>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",

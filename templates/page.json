@@ -242,7 +242,7 @@
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "custom",
+                "type_preset": "paragraph",
                 "font": "var(--font-heading--family)",
                 "font_size": "0.875rem",
                 "line_height": "loose",
@@ -253,7 +253,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 0,
+                "padding-block-start": 10,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0

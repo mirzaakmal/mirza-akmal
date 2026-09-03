@@ -705,13 +705,64 @@
         "padding-block-end": 40
       }
     },
-    "custom_liquid_8yARqm": {
-      "type": "custom-liquid",
-      "name": "t:names.custom_liquid",
+    "section_tHgR7r": {
+      "type": "section",
+      "blocks": {
+        "text_MUwBgN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_MUwBgN"
+      ],
+      "name": "t:names.email_signup",
       "settings": {
-        "custom_liquid": "<p style=\"text-align: center; background-color: #F5F5F5; \npadding: 10 0 10 0; color: #000000; font-family: jost; weight: 400; style: regular;\"><span>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</span></p>",
-        "background_color": "",
-        "section_width": "full-width",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#F5F5F5",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
         "padding-block-start": 10,
         "padding-block-end": 10
       }
@@ -722,6 +773,6 @@
     "section_FrrKKQ",
     "section_tnaNdn",
     "hero_zJKBrF",
-    "custom_liquid_8yARqm"
+    "section_tHgR7r"
   ]
 }

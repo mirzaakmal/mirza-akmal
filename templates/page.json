@@ -139,7 +139,7 @@
             "vertical_alignment_flex_direction_column": "space-between",
             "gap": 0,
             "width": "custom",
-            "custom_width": 25,
+            "custom_width": 20,
             "width_mobile": "fit-content",
             "custom_width_mobile": 100,
             "height": "fill",
@@ -229,7 +229,7 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
-            "padding-block-start": 10,
+            "padding-block-start": 20,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
@@ -304,8 +304,28 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "button_kQLBtg": {
+              "type": "button",
+              "name": "t:names.button",
+              "settings": {
+                "label": "CHOOSE NOW",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "custom_button_background": "{{ settings.color_palette.foreground }}",
+                "custom_button_text": "{{ settings.color_palette.background }}",
+                "custom_button_border": "{{ settings.color_palette.background }}",
+                "link_text_color": "",
+                "width": "custom",
+                "custom_width": 60,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            },
             "text_dcVBHt": {
               "type": "text",
+              "disabled": true,
               "settings": {
                 "text": "<h1>TISSO  VISION</h1>",
                 "width": "fit-content",
@@ -331,6 +351,7 @@
             }
           },
           "block_order": [
+            "button_kQLBtg",
             "text_dcVBHt"
           ]
         }

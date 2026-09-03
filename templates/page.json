@@ -142,8 +142,8 @@
             "custom_width": 25,
             "width_mobile": "fit-content",
             "custom_width_mobile": 100,
-            "height": "fill",
-            "custom_height": 100,
+            "height": "fit",
+            "custom_height": 20,
             "background_media": "none",
             "background_color": "",
             "video_position": "cover",
@@ -163,7 +163,7 @@
             "padding-block-start": 10,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-end": 20
           },
           "blocks": {
             "text_zMLDge": {

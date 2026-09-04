@@ -55,32 +55,31 @@
   </div>
 
   {%- comment -%} ── Shared quick-view popup (single instance per section) ── {%- endcomment -%}
-  <div class="product-modal" data-product-modal aria-hidden="true">
-    <div class="product-modal__overlay" data-modal-close></div>
-
-    <div class="product-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="ProductModalTitle-{{ section.id }}">
-      <button type="button" class="product-modal__close" data-modal-close aria-label="Close">&times;</button>
-
+  <div class="product-modal" data-product-modal>
+  <div class="product-modal__overlay"></div>
+  <div class="product-modal__dialog">
+    <button class="product-modal__close" data-modal-close aria-label="Close">&times;</button>
+    
+    <div class="product-modal__top-section">
       <div class="product-modal__media">
-        <img class="product-modal__image" src="" alt="" data-modal-image>
+        <img src="" alt="" data-modal-image class="product-modal__image">
       </div>
-
       <div class="product-modal__info">
-        <h2 class="product-modal__title" id="ProductModalTitle-{{ section.id }}" data-modal-title></h2>
-        <p class="product-modal__price" data-modal-price></p>
-        <div class="product-modal__description" data-modal-description></div>
-
-        {%- comment -%} Variant option selectors are built dynamically in JS {%- endcomment -%}
-        <div class="product-modal__options" data-modal-options></div>
-
-        <button type="button" class="product-modal__add-to-cart" data-add-to-cart disabled>
-          ADD TO CART
-        </button>
-
-        <p class="product-modal__message" role="status" data-modal-message></p>
+        <h3 data-modal-title class="product-modal__title"></h3>
+        <div data-modal-price class="product-modal__price"></div>
+        <div data-modal-description class="product-modal__description"></div>
       </div>
     </div>
+
+    <div data-modal-options class="product-modal__options"></div>
+
+    <button data-add-to-cart class="product-modal__add-to-cart">
+      <span>ADD TO CART</span>
+      <span class="product-modal__add-arrow">⟶</span>
+    </button>
+    <div data-modal-message class="product-modal__message"></div>
   </div>
+</div>
 
 </section>
 

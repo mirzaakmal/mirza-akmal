@@ -1,8 +1,14 @@
 {{ 'product-grid.css' | asset_url | stylesheet_tag }}
 
+
 {%- comment -%}
-  Product Grid section — built entirely from scratch.
+  Product Grid section — built entirely from scratch (no Dawn snippets/classes).
+  Renders up to 6 blocks, each pointing at a merchant-selected product.
+  Clicking the "+" button on a tile opens a shared popup (markup at the
+  bottom of this file) which is populated dynamically via JS using the
+  Storefront AJAX API (/products/{handle}.js and /cart/add.js).
 {%- endcomment -%}
+
 
 <section
   class="product-grid"
@@ -14,40 +20,43 @@
   data-trigger-option-b="{{ section.settings.linked_trigger_option_b | escape }}"
 >
 
+
   {%- if section.settings.heading != blank -%}
     <h2 class="product-grid__heading">{{ section.settings.heading }}</h2>
   {%- endif -%}
 
+
   <div class="product-grid__items">
     {%- for block in section.blocks -%}
       {%- assign grid_product = block.settings.product -%}
-      
-      {%- comment -%} Hardcoded hotspot coordinates matching Image 2 precisely {%- endcomment -%}
+     
+      {%- comment -%} Fallback positions based on item index if schema values are not customized {%- endcomment -%}
       {%- case forloop.index -%}
-        {%- when 1 -%}
-          {%- assign pos_x = block.settings.plus_pos_x | default: 63 -%}
-          {%- assign pos_y = block.settings.plus_pos_y | default: 27 -%}
-        {%- when 2 -%}
-          {%- assign pos_x = block.settings.plus_pos_x | default: 83 -%}
-          {%- assign pos_y = block.settings.plus_pos_y | default: 26 -%}
-        {%- when 3 -%}
-          {%- assign pos_x = block.settings.plus_pos_x | default: 88 -%}
-          {%- assign pos_y = block.settings.plus_pos_y | default: 11 -%}
-        {%- when 4 -%}
-          {%- assign pos_x = block.settings.plus_pos_x | default: 78 -%}
-          {%- assign pos_y = block.settings.plus_pos_y | default: 21 -%}
-        {%- when 5 -%}
-          {%- assign pos_x = block.settings.plus_pos_x | default: 68 -%}
-          {%- assign pos_y = block.settings.plus_pos_y | default: 28 -%}
-        {%- when 6 -%}
-          {%- assign pos_x = block.settings.plus_pos_x | default: 87 -%}
-          {%- assign pos_y = block.settings.plus_pos_y | default: 35 -%}
-        {%- else -%}
-          {%- assign pos_x = block.settings.plus_pos_x | default: 85 -%}
-          {%- assign pos_y = block.settings.plus_pos_y | default: 15 -%}
-      {%- endcase -%}
+  {%- when 1 -%}
+    {%- assign default_x = 63 -%}  {% comment %} Left / Right position in % {% endcomment %}
+    {%- assign default_y = 27 -%}  {% comment %} Top / Bottom position in % {% endcomment %}
+  {%- when 2 -%}
+    {%- assign default_x = 83 -%}
+    {%- assign default_y = 26 -%}
+  {%- when 3 -%}
+    {%- assign default_x = 88 -%}
+    {%- assign default_y = 11 -%}
+  {%- when 4 -%}
+    {%- assign default_x = 78 -%}
+    {%- assign default_y = 21 -%}
+  {%- when 5 -%}
+    {%- assign default_x = 68 -%}
+    {%- assign default_y = 28 -%}
+  {%- when 6 -%}
+    {%- assign default_x = 87 -%}
+    {%- assign default_y = 35 -%}
+{%- endcase -%}
+      {%- assign pos_x = block.settings.plus_pos_x | default: default_x -%}
+      {%- assign pos_y = block.settings.plus_pos_y | default: default_y -%}
+
 
       <div class="product-grid__item" {{ block.shopify_attributes }}>
+
 
         {%- if grid_product != blank -%}
           <div class="product-grid__image-wrap" data-product-handle="{{ grid_product.handle }}">
@@ -56,6 +65,7 @@
               | image_url: width: 900
               | image_tag: loading: 'lazy', alt: grid_product.title, class: 'product-grid__image'
             }}
+
 
             <button
               type="button"
@@ -73,16 +83,18 @@
           </div>
         {%- endif -%}
 
+
       </div>
     {%- endfor -%}
   </div>
 
-  {%- comment -%} ── Shared quick-view popup ── {%- endcomment -%}
+
+  {%- comment -%} ── Shared quick-view popup (single instance per section) ── {%- endcomment -%}
   <div class="product-modal" data-product-modal>
     <div class="product-modal__overlay"></div>
     <div class="product-modal__dialog">
       <button class="product-modal__close" data-modal-close aria-label="Close">&times;</button>
-      
+     
       <div class="product-modal__top-section">
         <div class="product-modal__media">
           <img src="" alt="" data-modal-image class="product-modal__image">
@@ -94,7 +106,9 @@
         </div>
       </div>
 
+
       <div data-modal-options class="product-modal__options"></div>
+
 
       <button data-add-to-cart class="product-modal__add-to-cart">
         <span>ADD TO CART</span>
@@ -104,9 +118,12 @@
     </div>
   </div>
 
+
 </section>
 
+
 <script src="{{ 'product-grid.js' | asset_url }}" defer="defer"></script>
+
 
 {% schema %}
 {
@@ -118,7 +135,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Tisso vison in the world"
+      "default": "Shop the Edit"
     },
     {
       "type": "header",
@@ -156,6 +173,26 @@
           "type": "product",
           "id": "product",
           "label": "Product"
+        },
+        {
+          "type": "range",
+          "id": "plus_pos_x",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Plus Button Horizontal Position (X)",
+          "default": 85
+        },
+        {
+          "type": "range",
+          "id": "plus_pos_y",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Plus Button Vertical Position (Y)",
+          "default": 15
         }
       ]
     }
@@ -176,3 +213,4 @@
   ]
 }
 {% endschema %}
+

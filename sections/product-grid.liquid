@@ -27,39 +27,60 @@
 
 
   <div class="product-grid__items">
-    {%- for block in section.blocks -%}
-      {%- assign grid_product = block.settings.product -%}
-      <div class="product-grid__item" {{ block.shopify_attributes }}>
+  {%- for block in section.blocks -%}
+    {%- assign grid_product = block.settings.product -%}
 
+    {%- comment -%} Determine default hotspot coordinates per product index {%- endcomment -%}
+    {%- case forloop.index -%}
+      {%- when 1 -%}
+        {%- assign default_x = 63 -%}
+        {%- assign default_y = 27 -%}
+      {%- when 2 -%}
+        {%- assign default_x = 83 -%}
+        {%- assign default_y = 26 -%}
+      {%- when 3 -%}
+        {%- assign default_x = 88 -%}
+        {%- assign default_y = 11 -%}
+      {%- when 4 -%}
+        {%- assign default_x = 78 -%}
+        {%- assign default_y = 21 -%}
+      {%- when 5 -%}
+        {%- assign default_x = 68 -%}
+        {%- assign default_y = 28 -%}
+      {%- when 6 -%}
+        {%- assign default_x = 87 -%}
+        {%- assign default_y = 35 -%}
+      {%- else -%}
+        {%- assign default_x = 50 -%}
+        {%- assign default_y = 50 -%}
+    {%- endcase -%}
 
-        {%- if grid_product != blank -%}
-          <div class="product-grid__image-wrap" data-product-handle="{{ grid_product.handle }}">
-            {{
-              grid_product.featured_image
-              | image_url: width: 900
-              | image_tag: loading: 'lazy', alt: grid_product.title, class: 'product-grid__image'
-            }}
+    {%- assign pos_x = block.settings.plus_pos_x | default: default_x -%}
+    {%- assign pos_y = block.settings.plus_pos_y | default: default_y -%}
 
+    <div class="product-grid__item" {{ block.shopify_attributes }}>
+      {%- if grid_product != blank -%}
+        <div class="product-grid__image-wrap" data-product-handle="{{ grid_product.handle }}">
+          {{
+            grid_product.featured_image
+            | image_url: width: 900
+            | image_tag: loading: 'lazy', alt: grid_product.title, class: 'product-grid__image'
+          }}
 
-            <button
-              type="button"
-              class="product-grid__plus-btn"
-              data-open-product-modal
-              aria-label="Quick view {{ grid_product.title | escape }}"
-            >
-              <span aria-hidden="true">+</span>
-            </button>
-          </div>
-        {%- else -%}
-          <div class="product-grid__image-wrap product-grid__image-wrap--empty">
-            <p>Select a product in the customizer</p>
-          </div>
-        {%- endif -%}
-
-
-      </div>
-    {%- endfor -%}
-  </div>
+          <button
+            type="button"
+            class="product-grid__plus-btn"
+            style="top: {{ pos_y }}%; left: {{ pos_x }}%;"
+            data-open-product-modal
+            aria-label="Quick view {{ grid_product.title | escape }}"
+          >
+            <span aria-hidden="true">+</span>
+          </button>
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+</div>
 
 
   {%- comment -%} ── Shared quick-view popup (single instance per section) ── {%- endcomment -%}

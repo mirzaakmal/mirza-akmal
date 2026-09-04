@@ -676,7 +676,7 @@
             "corner_radius": 0,
             "padding-block-start": 20,
             "padding-block-end": 0,
-            "padding-inline-start": 60,
+            "padding-inline-start": 70,
             "padding-inline-end": 0
           },
           "blocks": {}

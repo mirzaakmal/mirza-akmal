@@ -941,30 +941,31 @@
         "padding-block-end": 10
       }
     },
-    "section_Vt9dfp": {
+    "section_Gkw3X4": {
       "type": "section",
       "blocks": {
-        "group_JdF77J": {
+        "group_Ex6bBa": {
           "type": "group",
           "settings": {
-            "content_direction": "column",
+            "content_direction": "row",
             "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
+            "horizontal_alignment": "center",
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 32,
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 15,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fill",
             "custom_height": 100,
-            "background_media": "image",
+            "background_media": "none",
             "background_color": "",
             "video_position": "cover",
-            "background_image_position": "cover",
+            "background_image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
+            "background_image_position": "fit",
             "toggle_overlay": false,
             "overlay_color": "#00000026",
             "overlay_style": "solid",
@@ -977,155 +978,233 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
             "padding-inline-start": 40,
             "padding-inline-end": 40
           },
           "blocks": {
-            "spacer_hTJyNV": {
-              "type": "spacer",
+            "group_CwDfwH": {
+              "type": "group",
               "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 0,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fill",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
+                "background_image_position": "fit",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "hero-apparel-2",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
-              "blocks": {}
+              "blocks": {
+                "image_bDAdkT": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "settings": {
+                    "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
+                    "link": "",
+                    "image_ratio": "square",
+                    "width": "fill",
+                    "custom_width": 83,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_color": "",
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_bDAdkT"
+              ]
+            },
+            "group_T8KEex": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 0,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fill",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "hero-apparel-1",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "image_i64TY3": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "settings": {
+                    "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
+                    "link": "",
+                    "image_ratio": "square",
+                    "width": "fill",
+                    "custom_width": 83,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_color": "",
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_i64TY3"
+              ]
+            },
+            "group_zhXRmp": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 0,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fill",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "hero-apparel-1",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "image_yqnrcY": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "settings": {
+                    "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
+                    "link": "",
+                    "image_ratio": "square",
+                    "width": "fill",
+                    "custom_width": 83,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_color": "",
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_yqnrcY"
+              ]
             }
           },
           "block_order": [
-            "spacer_hTJyNV"
-          ]
-        },
-        "group_wy4YDK": {
-          "type": "group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 32,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fill",
-            "custom_height": 100,
-            "background_media": "image",
-            "background_color": "",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "hero-apparel-1",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
-          },
-          "blocks": {
-            "spacer_WJTGxc": {
-              "type": "spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "spacer_WJTGxc"
-          ]
-        },
-        "group_FEzGjn": {
-          "type": "group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 32,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fill",
-            "custom_height": 100,
-            "background_media": "image",
-            "background_color": "",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "hero-apparel-1",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
-          },
-          "blocks": {
-            "spacer_GQY7JL": {
-              "type": "spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "spacer_GQY7JL"
+            "group_CwDfwH",
+            "group_T8KEex",
+            "group_zhXRmp"
           ]
         }
       },
       "block_order": [
-        "group_JdF77J",
-        "group_wy4YDK",
-        "group_FEzGjn"
+        "group_Ex6bBa"
       ],
       "name": "t:names.split_showcase",
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
+        "horizontal_alignment": "center",
         "vertical_alignment": "center",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
@@ -1159,6 +1238,6 @@
     "hero_zJKBrF",
     "section_tHgR7r",
     "section_kK9WYT",
-    "section_Vt9dfp"
+    "section_Gkw3X4"
   ]
 }

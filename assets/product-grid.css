@@ -4,6 +4,7 @@ Scratch-built styles matching Image 2 */
 
 .product-grid {
   width: 100%;
+  max-width: 100%
   margin: auto;
   padding: 20px 20px;
   box-sizing: border-box;
@@ -19,7 +20,7 @@ margin: 0 0 32px;
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 gap: 16px;
-max-width: 1200px;
+max-width: 100%;
 margin: 0 auto;
 }
 

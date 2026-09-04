@@ -1,11 +1,7 @@
 {{ 'product-grid.css' | asset_url | stylesheet_tag }}
 
 {%- comment -%}
-  Product Grid section — built entirely from scratch (no Dawn snippets/classes).
-  Renders up to 6 blocks, each pointing at a merchant-selected product.
-  Clicking the "+" button on a tile opens a shared popup (markup at the
-  bottom of this file) which is populated dynamically via JS using the
-  Storefront AJAX API (/products/{handle}.js and /cart/add.js).
+  Product Grid section — built entirely from scratch.
 {%- endcomment -%}
 
 <section
@@ -26,29 +22,30 @@
     {%- for block in section.blocks -%}
       {%- assign grid_product = block.settings.product -%}
       
-      {%- comment -%} Fallback positions based on item index if schema values are not customized {%- endcomment -%}
+      {%- comment -%} Hardcoded hotspot coordinates matching Image 2 precisely {%- endcomment -%}
       {%- case forloop.index -%}
-  {%- when 1 -%}
-    {%- assign default_x = 63 -%}  {% comment %} Left / Right position in % {% endcomment %}
-    {%- assign default_y = 27 -%}  {% comment %} Top / Bottom position in % {% endcomment %}
-  {%- when 2 -%}
-    {%- assign default_x = 83 -%}
-    {%- assign default_y = 26 -%}
-  {%- when 3 -%}
-    {%- assign default_x = 88 -%}
-    {%- assign default_y = 11 -%}
-  {%- when 4 -%}
-    {%- assign default_x = 78 -%}
-    {%- assign default_y = 21 -%}
-  {%- when 5 -%}
-    {%- assign default_x = 68 -%}
-    {%- assign default_y = 28 -%}
-  {%- when 6 -%}
-    {%- assign default_x = 87 -%}
-    {%- assign default_y = 35 -%}
-{%- endcase -%}
-      {%- assign pos_x = block.settings.plus_pos_x | default: default_x -%}
-      {%- assign pos_y = block.settings.plus_pos_y | default: default_y -%}
+        {%- when 1 -%}
+          {%- assign pos_x = block.settings.plus_pos_x | default: 63 -%}
+          {%- assign pos_y = block.settings.plus_pos_y | default: 27 -%}
+        {%- when 2 -%}
+          {%- assign pos_x = block.settings.plus_pos_x | default: 83 -%}
+          {%- assign pos_y = block.settings.plus_pos_y | default: 26 -%}
+        {%- when 3 -%}
+          {%- assign pos_x = block.settings.plus_pos_x | default: 88 -%}
+          {%- assign pos_y = block.settings.plus_pos_y | default: 11 -%}
+        {%- when 4 -%}
+          {%- assign pos_x = block.settings.plus_pos_x | default: 78 -%}
+          {%- assign pos_y = block.settings.plus_pos_y | default: 21 -%}
+        {%- when 5 -%}
+          {%- assign pos_x = block.settings.plus_pos_x | default: 68 -%}
+          {%- assign pos_y = block.settings.plus_pos_y | default: 28 -%}
+        {%- when 6 -%}
+          {%- assign pos_x = block.settings.plus_pos_x | default: 87 -%}
+          {%- assign pos_y = block.settings.plus_pos_y | default: 35 -%}
+        {%- else -%}
+          {%- assign pos_x = block.settings.plus_pos_x | default: 85 -%}
+          {%- assign pos_y = block.settings.plus_pos_y | default: 15 -%}
+      {%- endcase -%}
 
       <div class="product-grid__item" {{ block.shopify_attributes }}>
 
@@ -80,7 +77,7 @@
     {%- endfor -%}
   </div>
 
-  {%- comment -%} ── Shared quick-view popup (single instance per section) ── {%- endcomment -%}
+  {%- comment -%} ── Shared quick-view popup ── {%- endcomment -%}
   <div class="product-modal" data-product-modal>
     <div class="product-modal__overlay"></div>
     <div class="product-modal__dialog">
@@ -121,7 +118,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Shop the Edit"
+      "default": "Tisso vison in the world"
     },
     {
       "type": "header",
@@ -159,26 +156,6 @@
           "type": "product",
           "id": "product",
           "label": "Product"
-        },
-        {
-          "type": "range",
-          "id": "plus_pos_x",
-          "min": 5,
-          "max": 95,
-          "step": 1,
-          "unit": "%",
-          "label": "Plus Button Horizontal Position (X)",
-          "default": 85
-        },
-        {
-          "type": "range",
-          "id": "plus_pos_y",
-          "min": 5,
-          "max": 95,
-          "step": 1,
-          "unit": "%",
-          "label": "Plus Button Vertical Position (Y)",
-          "default": 15
         }
       ]
     }

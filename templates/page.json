@@ -567,37 +567,49 @@
         "product_kUTwg8": {
           "type": "product",
           "settings": {
-            "product": "black-leather-bag"
+            "product": "black-leather-bag",
+            "plus_pos_x": 60,
+            "plus_pos_y": 60
           }
         },
         "product_7b8eVC": {
           "type": "product",
           "settings": {
-            "product": "blue-silk-tuxedo"
+            "product": "blue-silk-tuxedo",
+            "plus_pos_x": 80,
+            "plus_pos_y": 50
           }
         },
         "product_9wA6JC": {
           "type": "product",
           "settings": {
-            "product": "chequered-red-shirt"
+            "product": "chequered-red-shirt",
+            "plus_pos_x": 60,
+            "plus_pos_y": 20
           }
         },
         "product_H4DCi6": {
           "type": "product",
           "settings": {
-            "product": "classic-leather-jacket"
+            "product": "classic-leather-jacket",
+            "plus_pos_x": 80,
+            "plus_pos_y": 20
           }
         },
         "product_B9j3Dg": {
           "type": "product",
           "settings": {
-            "product": "classic-varsity-top"
+            "product": "classic-varsity-top",
+            "plus_pos_x": 50,
+            "plus_pos_y": 30
           }
         },
         "product_FgH8Hk": {
           "type": "product",
           "settings": {
-            "product": "dark-denim-top"
+            "product": "dark-denim-top",
+            "plus_pos_x": 76,
+            "plus_pos_y": 47
           }
         }
       },

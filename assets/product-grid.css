@@ -4,10 +4,8 @@ Scratch-built styles matching Image 2 */
 
 .product-grid {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 0;
-  padding-right: 0;
+  margin: auto;
+  padding: 20px 20px;
   box-sizing: border-box;
 }
 
@@ -18,11 +16,11 @@ margin: 0 0 32px;
 }
 
 .product-grid__items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-left: 0;
-  padding-left: 0;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 16px;
+max-width: 1200px;
+margin: 0 auto;
 }
 
 .product-grid__item {

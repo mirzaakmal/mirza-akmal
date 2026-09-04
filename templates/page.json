@@ -655,6 +655,32 @@
     "section_Gkw3X4": {
       "type": "section",
       "blocks": {
+        "text_dkNkjY": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<h3>Tisso vison in the wild</h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 20,
+            "padding-block-end": 0,
+            "padding-inline-start": 60,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "group_Ex6bBa": {
           "type": "group",
           "settings": {
@@ -909,11 +935,12 @@
         }
       },
       "block_order": [
+        "text_dkNkjY",
         "group_Ex6bBa"
       ],
       "name": "t:names.split_showcase",
       "settings": {
-        "content_direction": "row",
+        "content_direction": "column",
         "vertical_on_mobile": true,
         "horizontal_alignment": "center",
         "vertical_alignment": "center",

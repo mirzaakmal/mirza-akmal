@@ -18,11 +18,11 @@ margin: 0 0 32px;
 }
 
 .product-grid__items {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 16px;
-max-width: 1200px;
-margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .product-grid__item {

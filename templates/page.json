@@ -692,48 +692,9 @@
             "padding-block-start": 10,
             "padding-block-end": 0,
             "padding-inline-start": 20,
-            "padding-inline-end": 0
+            "padding-inline-end": 20
           },
           "blocks": {
-            "image_JC7jqh": {
-              "type": "image",
-              "name": "t:names.image",
-              "disabled": true,
-              "settings": {
-                "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
-                "link": "",
-                "image_ratio": "portrait",
-                "width": "fill",
-                "custom_width": 83,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "spacer_cjhbda": {
-              "type": "spacer",
-              "disabled": true,
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
             "group_tAJzFg": {
               "type": "group",
               "settings": {
@@ -744,7 +705,7 @@
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "center",
                 "vertical_alignment_flex_direction_column": "center",
-                "gap": 55,
+                "gap": 0,
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -768,9 +729,9 @@
                 "link": "",
                 "open_in_new_tab": false,
                 "placeholder": "hero-apparel-2",
-                "padding-block-start": 10,
+                "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 20,
+                "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
               "blocks": {
@@ -780,7 +741,7 @@
                   "settings": {
                     "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
                     "link": "",
-                    "image_ratio": "portrait",
+                    "image_ratio": "square",
                     "width": "fill",
                     "custom_width": 83,
                     "width_mobile": "fill",
@@ -797,24 +758,10 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
-                },
-                "spacer_9zeHAj": {
-                  "type": "spacer",
-                  "settings": {
-                    "size": "pixel",
-                    "percent_size": 100,
-                    "pixel_size": 16,
-                    "custom_mobile_size": false,
-                    "size_mobile": "percent",
-                    "percent_size_mobile": 100,
-                    "pixel_size_mobile": 120
-                  },
-                  "blocks": {}
                 }
               },
               "block_order": [
-                "image_EKChLb",
-                "spacer_9zeHAj"
+                "image_EKChLb"
               ]
             },
             "group_R7WBJE": {
@@ -862,7 +809,7 @@
                   "settings": {
                     "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
                     "link": "",
-                    "image_ratio": "portrait",
+                    "image_ratio": "square",
                     "width": "fill",
                     "custom_width": 83,
                     "width_mobile": "fill",
@@ -879,24 +826,10 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
-                },
-                "spacer_nk4dc7": {
-                  "type": "spacer",
-                  "settings": {
-                    "size": "pixel",
-                    "percent_size": 100,
-                    "pixel_size": 16,
-                    "custom_mobile_size": false,
-                    "size_mobile": "percent",
-                    "percent_size_mobile": 100,
-                    "pixel_size_mobile": 120
-                  },
-                  "blocks": {}
                 }
               },
               "block_order": [
-                "image_G8UkYe",
-                "spacer_nk4dc7"
+                "image_G8UkYe"
               ]
             },
             "group_RbBtDT": {
@@ -944,7 +877,7 @@
                   "settings": {
                     "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
                     "link": "",
-                    "image_ratio": "portrait",
+                    "image_ratio": "square",
                     "width": "fill",
                     "custom_width": 83,
                     "width_mobile": "fill",
@@ -961,30 +894,14 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
-                },
-                "spacer_KLdxwY": {
-                  "type": "spacer",
-                  "settings": {
-                    "size": "pixel",
-                    "percent_size": 100,
-                    "pixel_size": 16,
-                    "custom_mobile_size": false,
-                    "size_mobile": "percent",
-                    "percent_size_mobile": 100,
-                    "pixel_size_mobile": 120
-                  },
-                  "blocks": {}
                 }
               },
               "block_order": [
-                "image_7jHmwr",
-                "spacer_KLdxwY"
+                "image_7jHmwr"
               ]
             }
           },
           "block_order": [
-            "image_JC7jqh",
-            "spacer_cjhbda",
             "group_tAJzFg",
             "group_R7WBJE",
             "group_RbBtDT"

@@ -27,8 +27,7 @@
 
 
   <div class="product-grid__items">
-    {%- for block in section.blocks -%}
-      {%- assign grid_product = block.settings.product -%}
+    
       {%- comment -%} Assign X/Y coordinates per product index {%- endcomment -%}
 {%- case forloop.index -%}
   {%- when 1 -%}
@@ -62,7 +61,9 @@
   data-open-product-modal
 >
   <span aria-hidden="true">+</span>
-</button>
+</button>   
+{%- for block in section.blocks -%}
+      {%- assign grid_product = block.settings.product -%}
       <div class="product-grid__item" {{ block.shopify_attributes }}>
 
 

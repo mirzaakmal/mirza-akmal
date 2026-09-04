@@ -576,6 +576,7 @@
       "block_order": [
         "text_MUwBgN"
       ],
+      "custom_css": [],
       "name": "t:names.email_signup",
       "settings": {
         "content_direction": "column",
@@ -586,7 +587,7 @@
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
-        "section_width": "page-width",
+        "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 50,
         "background_media": "none",

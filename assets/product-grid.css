@@ -3,7 +3,8 @@
 Scratch-built styles matching Image 2 */
 
 .product-grid {
-padding: 48px 32px;
+padding: 20px 20px;
+margin: auto;
 }
 
 .product-grid__heading {

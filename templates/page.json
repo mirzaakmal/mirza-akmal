@@ -665,7 +665,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 15,
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",

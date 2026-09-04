@@ -28,29 +28,25 @@
       
       {%- comment -%} Fallback positions based on item index if schema values are not customized {%- endcomment -%}
       {%- case forloop.index -%}
-        {%- when 1 -%}
-          {%- assign default_x = 63 -%}
-          {%- assign default_y = 27 -%}
-        {%- when 2 -%}
-          {%- assign default_x = 83 -%}
-          {%- assign default_y = 26 -%}
-        {%- when 3 -%}
-          {%- assign default_x = 88 -%}
-          {%- assign default_y = 11 -%}
-        {%- when 4 -%}
-          {%- assign default_x = 78 -%}
-          {%- assign default_y = 21 -%}
-        {%- when 5 -%}
-          {%- assign default_x = 68 -%}
-          {%- assign default_y = 28 -%}
-        {%- when 6 -%}
-          {%- assign default_x = 87 -%}
-          {%- assign default_y = 35 -%}
-        {%- else -%}
-          {%- assign default_x = 85 -%}
-          {%- assign default_y = 15 -%}
-      {%- endcase -%}
-
+  {%- when 1 -%}
+    {%- assign default_x = 63 -%}  {% comment %} Left / Right position in % {% endcomment %}
+    {%- assign default_y = 27 -%}  {% comment %} Top / Bottom position in % {% endcomment %}
+  {%- when 2 -%}
+    {%- assign default_x = 83 -%}
+    {%- assign default_y = 26 -%}
+  {%- when 3 -%}
+    {%- assign default_x = 88 -%}
+    {%- assign default_y = 11 -%}
+  {%- when 4 -%}
+    {%- assign default_x = 78 -%}
+    {%- assign default_y = 21 -%}
+  {%- when 5 -%}
+    {%- assign default_x = 68 -%}
+    {%- assign default_y = 28 -%}
+  {%- when 6 -%}
+    {%- assign default_x = 87 -%}
+    {%- assign default_y = 35 -%}
+{%- endcase -%}
       {%- assign pos_x = block.settings.plus_pos_x | default: default_x -%}
       {%- assign pos_y = block.settings.plus_pos_y | default: default_y -%}
 

@@ -5,7 +5,7 @@ Scratch-built styles matching Image 2 */
 .product-grid {
   width: 100%;
   margin: auto;
-  padding: 0px -20px;
+  padding: 20px 20px;
   box-sizing: border-box;
 }
 

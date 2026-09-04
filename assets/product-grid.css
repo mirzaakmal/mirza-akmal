@@ -3,7 +3,7 @@
 Scratch-built styles matching Image 2 */
 
 .product-grid {
-padding: 48px 20px;
+padding: 48px 32px;
 }
 
 .product-grid__heading {
@@ -41,7 +41,7 @@ display: block;
 
 .product-grid__plus-btn {
 position: absolute;
-top: 12px;
+top: 6px;
 right: 12px;
 width: 32px;
 height: 32px;

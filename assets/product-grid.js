@@ -1,19 +1,7 @@
 /**
  * product-grid.js
- * Vanilla JS only (no jQuery), scoped per section instance so multiple
- * Product Grid sections can exist on the same page without collisions.
- *
- * Responsibilities:
- *  1. Fetch product JSON on "+" click and open the shared popup.
- *  2. Dynamically build variant option selectors from the product's
- *     variant list (no hardcoded option names/values).
- *  3. Resolve the selected variant as options change, update price
- *     and availability, and post the correct variant ID to /cart/add.js.
- *  4. Enforce the "Black + Medium auto-adds Soft Winter Jacket" rule
- *     using merchant-configurable trigger values (data attributes),
- *     not hardcoded strings.
+ * Scoped per section instance for Shopify.
  */
-
 (function () {
   'use strict';
 
@@ -21,6 +9,8 @@
 
   function initProductGrid(root) {
     const modal = root.querySelector('[data-product-modal]');
+    if (!modal) return;
+
     const moneyFormat = root.dataset.moneyFormat || '${{amount}}';
     const linkedProductHandle = root.dataset.linkedProductHandle;
     const triggerA = (root.dataset.triggerOptionA || '').toLowerCase();
@@ -36,13 +26,13 @@
       message: modal.querySelector('[data-modal-message]'),
     };
 
-    // Holds state for whichever product is currently open in the modal.
-    let selectedOptions = []; // e.g. ["Black", "Medium"]
+    let currentProduct = null;
+    let selectedOptions = [];
 
-    // ── Open / close ──────────────────────────────────────────────
-
+    // Open / Close triggers
     root.querySelectorAll('[data-open-product-modal]').forEach((btn) => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         const wrap = btn.closest('[data-product-handle]');
         const handle = wrap && wrap.dataset.productHandle;
         if (!handle) return;
@@ -54,6 +44,11 @@
       el.addEventListener('click', closeModal);
     });
 
+    const overlay = modal.querySelector('.product-modal__overlay');
+    if (overlay) {
+      overlay.addEventListener('click', closeModal);
+    }
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeModal();
     });
@@ -61,94 +56,142 @@
     function openModal() {
       modal.setAttribute('data-open', 'true');
       modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
       modal.removeAttribute('data-open');
       modal.setAttribute('aria-hidden', 'true');
-      els.message.textContent = '';
+      document.body.style.overflow = '';
+      if (els.message) els.message.textContent = '';
     }
 
-    // ── Fetch product JSON ────────────────────────────────────────
-
     function loadProduct(handle) {
+      if (els.message) els.message.textContent = 'Loading...';
       fetch(`/products/${handle}.js`)
         .then((res) => {
           if (!res.ok) throw new Error('Product fetch failed');
           return res.json();
         })
         .then((product) => {
+          currentProduct = product;
           renderProduct(product);
           openModal();
         })
         .catch(() => {
-          els.message.textContent = 'Sorry, this product could not be loaded.';
+          if (els.message) els.message.textContent = 'Sorry, this product could not be loaded.';
           openModal();
         });
     }
 
-    // ── Render product info + build variant selectors ─────────────
-
     function renderProduct(product) {
-      els.title.textContent = product.title;
-      els.description.innerHTML = product.description || '';
-      els.image.src = normalizeUrl(product.featured_image);
-      els.image.alt = product.title;
-      els.message.textContent = '';
+      if (els.title) els.title.textContent = product.title;
+      if (els.description) els.description.innerHTML = product.description || '';
+      if (els.image) {
+        els.image.src = normalizeUrl(product.featured_image || (product.images && product.images[0]));
+        els.image.alt = product.title;
+      }
+      if (els.message) els.message.textContent = '';
 
-      // Default to the first available variant, falling back to the first variant.
-      const defaultVariant =
-        product.variants.find((v) => v.available) || product.variants[0];
-      selectedOptions = [
-        defaultVariant.option1,
-        defaultVariant.option2,
-        defaultVariant.option3,
-      ].filter(Boolean);
+      const defaultVariant = product.variants.find((v) => v.available) || product.variants[0];
+      selectedOptions = defaultVariant
+        ? [defaultVariant.option1, defaultVariant.option2, defaultVariant.option3].filter(Boolean)
+        : [];
 
       buildOptionSelectors(product);
       updateForSelection(product);
     }
 
     function buildOptionSelectors(product) {
+      if (!els.options) return;
       els.options.innerHTML = '';
 
-      // product.options is an array of option names, e.g. ["Color", "Size"].
-      product.options.forEach((optionName, index) => {
+      if (!product.options || !product.options.length) return;
+
+      product.options.forEach((optionObj, index) => {
+        // FIX: Safely extract string name to prevent [OBJECT OBJECT]
+        const optionName = typeof optionObj === 'object' && optionObj !== null
+          ? (optionObj.name || `Option ${index + 1}`)
+          : String(optionObj);
+
+        if (optionName.toLowerCase() === 'title' && product.variants.length === 1 && product.variants[0].title === 'Default Title') {
+          return;
+        }
+
         const values = uniqueOptionValues(product, index);
 
         const group = document.createElement('div');
         group.className = 'product-modal__option';
 
-        const label = document.createElement('span');
+        const label = document.createElement('label');
         label.className = 'product-modal__option-label';
         label.textContent = optionName;
         group.appendChild(label);
 
-        const valuesWrap = document.createElement('div');
-        valuesWrap.className = 'product-modal__option-values';
+        const lowerName = optionName.toLowerCase();
 
-        values.forEach((value) => {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'product-modal__option-value';
-          btn.textContent = value;
-          btn.dataset.optionIndex = String(index);
-          btn.dataset.optionValue = value;
-          btn.setAttribute(
-            'data-selected',
-            selectedOptions[index] === value ? 'true' : 'false'
-          );
+        // Size selector -> Dropdown select box matching Image 2
+        if (lowerName.includes('size') || values.length > 5) {
+          const selectWrap = document.createElement('div');
+          selectWrap.className = 'product-modal__select-wrap';
 
-          btn.addEventListener('click', () => {
-            selectedOptions[index] = value;
-            buildOptionSelectors(product); // re-render to refresh selected/disabled states
-            updateForSelection(product);
+          const select = document.createElement('select');
+          select.className = 'product-modal__select';
+
+          const defaultOption = document.createElement('option');
+          defaultOption.value = '';
+          defaultOption.textContent = 'Choose your size';
+          defaultOption.disabled = true;
+          if (!selectedOptions[index]) defaultOption.selected = true;
+          select.appendChild(defaultOption);
+
+          values.forEach((val) => {
+            const opt = document.createElement('option');
+            opt.value = val;
+            opt.textContent = val;
+            if (selectedOptions[index] === val) opt.selected = true;
+            select.appendChild(opt);
           });
 
-          valuesWrap.appendChild(btn);
-        });
+          select.addEventListener('change', (e) => {
+            selectedOptions[index] = e.target.value;
+            updateForSelection(product);
+            buildOptionSelectors(product);
+          });
 
-        group.appendChild(valuesWrap);
+          const arrow = document.createElement('div');
+          arrow.className = 'product-modal__select-arrow';
+          arrow.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+
+          selectWrap.appendChild(select);
+          selectWrap.appendChild(arrow);
+          group.appendChild(selectWrap);
+        } else {
+          // Color & segment options -> Full width bordered side-by-side buttons
+          const valuesWrap = document.createElement('div');
+          valuesWrap.className = 'product-modal__option-values';
+
+          values.forEach((value) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'product-modal__option-value';
+            btn.textContent = value;
+            btn.dataset.optionIndex = String(index);
+            btn.dataset.optionValue = value;
+            btn.setAttribute('data-selected', selectedOptions[index] === value ? 'true' : 'false');
+
+            btn.addEventListener('click', () => {
+              selectedOptions[index] = value;
+              buildOptionSelectors(product);
+              updateForSelection(product);
+            });
+
+            valuesWrap.appendChild(btn);
+          });
+
+          group.appendChild(valuesWrap);
+        }
+
         els.options.appendChild(group);
       });
     }
@@ -164,8 +207,6 @@
       return seen;
     }
 
-    // ── Resolve currently selected variant + update UI ─────────────
-
     function findMatchingVariant(product) {
       return product.variants.find((variant) => {
         return [variant.option1, variant.option2, variant.option3]
@@ -177,35 +218,38 @@
     function updateForSelection(product) {
       const variant = findMatchingVariant(product);
 
-      els.price.textContent = variant
-        ? formatMoney(variant.price, moneyFormat)
-        : 'Unavailable';
+      if (els.price) {
+        els.price.textContent = variant
+          ? formatMoney(variant.price, moneyFormat)
+          : 'Unavailable';
+      }
 
       const available = Boolean(variant && variant.available);
-      els.addToCartBtn.disabled = !available;
-      els.addToCartBtn.textContent = available ? 'ADD TO CART' : 'SOLD OUT';
+      if (els.addToCartBtn) {
+        els.addToCartBtn.disabled = !available;
+        els.addToCartBtn.innerHTML = available
+          ? `<span>ADD TO CART</span><span class="product-modal__add-arrow">⟶</span>`
+          : `<span>SOLD OUT</span>`;
 
-      els.addToCartBtn.onclick = available
-        ? () => handleAddToCart(variant)
-        : null;
+        els.addToCartBtn.onclick = available ? () => handleAddToCart(variant) : null;
+      }
     }
 
-    // ── Add to cart + linked product rule ──────────────────────────
-
     function handleAddToCart(variant) {
+      if (!variant) return;
       els.addToCartBtn.disabled = true;
-      els.message.textContent = 'Adding to cart…';
+      if (els.message) els.message.textContent = 'Adding to cart…';
 
       const items = [{ id: variant.id, quantity: 1 }];
 
-      // If both trigger values are present on the selected variant,
-      // queue up the linked product's first available variant too.
       const variantValues = [variant.option1, variant.option2, variant.option3]
         .filter(Boolean)
         .map((v) => v.toLowerCase());
 
       const shouldAddLinkedProduct =
         linkedProductHandle &&
+        triggerA &&
+        triggerB &&
         variantValues.includes(triggerA) &&
         variantValues.includes(triggerB);
 
@@ -221,7 +265,7 @@
             }
             addItemsToCart(items);
           })
-          .catch(() => addItemsToCart(items)); // fall back to just the main item
+          .catch(() => addItemsToCart(items));
       } else {
         addItemsToCart(items);
       }
@@ -238,33 +282,33 @@
           return res.json();
         })
         .then(() => {
-          els.message.textContent =
-            items.length > 1
-              ? 'Added to cart, including a bonus item!'
-              : 'Added to cart!';
-          els.addToCartBtn.disabled = false;
+          if (els.message) {
+            els.message.textContent =
+              items.length > 1
+                ? 'Added to cart, including bonus item!'
+                : 'Added to cart!';
+          }
+          if (els.addToCartBtn) els.addToCartBtn.disabled = false;
           document.dispatchEvent(new CustomEvent('cart:updated'));
         })
         .catch(() => {
-          els.message.textContent = 'Something went wrong. Please try again.';
-          els.addToCartBtn.disabled = false;
+          if (els.message) els.message.textContent = 'Something went wrong. Please try again.';
+          if (els.addToCartBtn) els.addToCartBtn.disabled = false;
         });
     }
-
-    // ── Helpers ─────────────────────────────────────────────────────
 
     function normalizeUrl(url) {
       if (!url) return '';
       return url.startsWith('//') ? `https:${url}` : url;
     }
 
-    // Formats a price (in cents) using the shop's money_format string,
-    // e.g. "${{amount}}" -> "$25.00". Keeps this section independent
-    // of any Dawn/global formatMoney helper.
     function formatMoney(cents, format) {
-      const amount = (cents / 100).toFixed(2);
-      return format.replace(/\{\{\s*amount\s*\}\}/, amount);
+      if (cents == null) return '';
+      const amount = (cents / 100).toFixed(2).replace('.', ',');
+      if (format.includes('{{amount}}')) {
+        return format.replace(/\{\{\s*amount\s*\}\}/, amount);
+      }
+      return `${amount}€`;
     }
   }
 })();
-

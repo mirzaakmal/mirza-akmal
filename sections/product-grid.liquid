@@ -25,6 +25,35 @@
   <div class="product-grid__items">
     {%- for block in section.blocks -%}
       {%- assign grid_product = block.settings.product -%}
+      
+      {%- comment -%} Fallback positions based on item index if schema values are not customized {%- endcomment -%}
+      {%- case forloop.index -%}
+        {%- when 1 -%}
+          {%- assign default_x = 63 -%}
+          {%- assign default_y = 27 -%}
+        {%- when 2 -%}
+          {%- assign default_x = 83 -%}
+          {%- assign default_y = 26 -%}
+        {%- when 3 -%}
+          {%- assign default_x = 88 -%}
+          {%- assign default_y = 11 -%}
+        {%- when 4 -%}
+          {%- assign default_x = 78 -%}
+          {%- assign default_y = 21 -%}
+        {%- when 5 -%}
+          {%- assign default_x = 68 -%}
+          {%- assign default_y = 28 -%}
+        {%- when 6 -%}
+          {%- assign default_x = 87 -%}
+          {%- assign default_y = 35 -%}
+        {%- else -%}
+          {%- assign default_x = 85 -%}
+          {%- assign default_y = 15 -%}
+      {%- endcase -%}
+
+      {%- assign pos_x = block.settings.plus_pos_x | default: default_x -%}
+      {%- assign pos_y = block.settings.plus_pos_y | default: default_y -%}
+
       <div class="product-grid__item" {{ block.shopify_attributes }}>
 
         {%- if grid_product != blank -%}
@@ -38,6 +67,7 @@
             <button
               type="button"
               class="product-grid__plus-btn"
+              style="top: {{ pos_y }}%; left: {{ pos_x }}%;"
               data-open-product-modal
               aria-label="Quick view {{ grid_product.title | escape }}"
             >
@@ -56,30 +86,30 @@
 
   {%- comment -%} ── Shared quick-view popup (single instance per section) ── {%- endcomment -%}
   <div class="product-modal" data-product-modal>
-  <div class="product-modal__overlay"></div>
-  <div class="product-modal__dialog">
-    <button class="product-modal__close" data-modal-close aria-label="Close">&times;</button>
-    
-    <div class="product-modal__top-section">
-      <div class="product-modal__media">
-        <img src="" alt="" data-modal-image class="product-modal__image">
+    <div class="product-modal__overlay"></div>
+    <div class="product-modal__dialog">
+      <button class="product-modal__close" data-modal-close aria-label="Close">&times;</button>
+      
+      <div class="product-modal__top-section">
+        <div class="product-modal__media">
+          <img src="" alt="" data-modal-image class="product-modal__image">
+        </div>
+        <div class="product-modal__info">
+          <h3 data-modal-title class="product-modal__title"></h3>
+          <div data-modal-price class="product-modal__price"></div>
+          <div data-modal-description class="product-modal__description"></div>
+        </div>
       </div>
-      <div class="product-modal__info">
-        <h3 data-modal-title class="product-modal__title"></h3>
-        <div data-modal-price class="product-modal__price"></div>
-        <div data-modal-description class="product-modal__description"></div>
-      </div>
+
+      <div data-modal-options class="product-modal__options"></div>
+
+      <button data-add-to-cart class="product-modal__add-to-cart">
+        <span>ADD TO CART</span>
+        <span class="product-modal__add-arrow">⟶</span>
+      </button>
+      <div data-modal-message class="product-modal__message"></div>
     </div>
-
-    <div data-modal-options class="product-modal__options"></div>
-
-    <button data-add-to-cart class="product-modal__add-to-cart">
-      <span>ADD TO CART</span>
-      <span class="product-modal__add-arrow">⟶</span>
-    </button>
-    <div data-modal-message class="product-modal__message"></div>
   </div>
-</div>
 
 </section>
 
@@ -133,6 +163,26 @@
           "type": "product",
           "id": "product",
           "label": "Product"
+        },
+        {
+          "type": "range",
+          "id": "plus_pos_x",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Plus Button Horizontal Position (X)",
+          "default": 85
+        },
+        {
+          "type": "range",
+          "id": "plus_pos_y",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "label": "Plus Button Vertical Position (Y)",
+          "default": 15
         }
       ]
     }
@@ -153,4 +203,3 @@
   ]
 }
 {% endschema %}
-

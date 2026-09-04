@@ -40,28 +40,29 @@ display: block;
 }
 
 .product-grid__plus-btn {
-position: absolute;
-top: 12px;
-right: 12px;
-width: 32px;
-height: 32px;
-border-radius: 50%;
-border: 1px solid #e5e5e5;
-background-color: rgba(255, 255, 255, 0.95);
-font-size: 18px;
-line-height: 1;
-cursor: pointer;
-display: flex;
-margin: 0px px 0px 0px
-align-items: center;
-justify-content: center;
-transition: transform 0.2s ease, background-color 0.2s ease;
-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  /* Remove top: 12px and right: 12px */
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: font-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%); /* Centers the hotspot circle exactly on the point */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .product-grid__plus-btn:hover {
-transform: scale(1.08);
-background-color: #ffffff;
+  transform: translate(-50%, -50%) scale(1.15);
+  background-color: #ffffff;
 }
 
 /* STREAMING_CHUNK:Styling modal popup overlay and dialog container... /

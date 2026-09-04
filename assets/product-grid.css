@@ -1,1 +1,258 @@
+/* product-grid.css
+   Scratch-built styles for the Product Grid section and its quick-view modal.
+   No Dawn classes are reused anywhere in this file. */
+
+.product-grid {
+  padding: 48px 32px;
+}
+
+.product-grid__heading {
+  text-align: center;
+  font-size: 28px;
+  margin: 0 0 32px;
+}
+
+/* ── Grid layout: 3 columns x 2 rows on desktop ─────────── */
+
+.product-grid__items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-grid__item {
+  position: relative;
+}
+
+.product-grid__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+
+.product-grid__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-grid__image-wrap--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #888;
+  text-align: center;
+  padding: 16px;
+}
+
+/* "+" quick view button, positioned per the design screenshot */
+
+.product-grid__plus-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.product-grid__plus-btn:hover {
+  transform: scale(1.1);
+  background-color: #ffffff;
+}
+
+/* ── Popup / modal ───────────────────────────────────────── */
+
+.product-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+}
+
+.product-modal[data-open] {
+  display: block;
+}
+
+.product-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.product-modal__dialog {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  max-width: 900px;
+  width: 92%;
+  margin: 5vh auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  padding: 32px;
+}
+
+.product-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.product-modal__media {
+  flex: 1 1 40%;
+}
+
+.product-modal__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-modal__info {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-modal__title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.product-modal__price {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.product-modal__description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Variant option groups, built dynamically by JS */
+
+.product-modal__options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.product-modal__option {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.product-modal__option-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-modal__option-values {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.product-modal__option-value {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.product-modal__option-value[data-selected="true"] {
+  border-color: #111;
+  background-color: #111;
+  color: #fff;
+}
+
+.product-modal__option-value[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.product-modal__add-to-cart {
+  margin-top: 8px;
+  padding: 14px 24px;
+  background-color: #111111;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.product-modal__add-to-cart:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.product-modal__add-to-cart:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+.product-modal__message {
+  min-height: 18px;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* ── Mobile view ─────────────────────────────────────────── */
+
+@media screen and (max-width: 749px) {
+  .product-grid {
+    padding: 32px 16px;
+  }
+
+  .product-grid__items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .product-modal__dialog {
+    flex-direction: column;
+    padding: 20px;
+    width: 94%;
+    margin: 4vh auto;
+  }
+
+  .product-modal__media,
+  .product-modal__info {
+    flex: 1 1 100%;
+  }
+}
 

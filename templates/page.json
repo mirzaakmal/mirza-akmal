@@ -338,7 +338,7 @@
         "section_height": "custom",
         "section_height_custom": 1,
         "background_media": "none",
-        "background_color": "#F5F5F5",
+        "background_color": "#f5f5f5",
         "video_position": "cover",
         "background_image_position": "cover",
         "toggle_overlay": false,
@@ -636,7 +636,7 @@
         "section_height": "",
         "section_height_custom": 50,
         "background_media": "none",
-        "background_color": "#F5F5F5",
+        "background_color": "#f5f5f5",
         "video_position": "cover",
         "background_image_position": "cover",
         "toggle_overlay": false,
@@ -1267,6 +1267,62 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "product_grid_9jEVt6": {
+      "type": "product-grid",
+      "blocks": {
+        "product_kUTwg8": {
+          "type": "product",
+          "settings": {
+            "product": "black-leather-bag"
+          }
+        },
+        "product_7b8eVC": {
+          "type": "product",
+          "settings": {
+            "product": "blue-silk-tuxedo"
+          }
+        },
+        "product_9wA6JC": {
+          "type": "product",
+          "settings": {
+            "product": "chequered-red-shirt"
+          }
+        },
+        "product_H4DCi6": {
+          "type": "product",
+          "settings": {
+            "product": "classic-leather-jacket"
+          }
+        },
+        "product_B9j3Dg": {
+          "type": "product",
+          "settings": {
+            "product": "classic-varsity-top"
+          }
+        },
+        "product_FgH8Hk": {
+          "type": "product",
+          "settings": {
+            "product": "dark-denim-top"
+          }
+        }
+      },
+      "block_order": [
+        "product_kUTwg8",
+        "product_7b8eVC",
+        "product_9wA6JC",
+        "product_H4DCi6",
+        "product_B9j3Dg",
+        "product_FgH8Hk"
+      ],
+      "name": "Product Grid",
+      "settings": {
+        "heading": "",
+        "linked_product": "dark-winter-jacket",
+        "linked_trigger_option_a": "Black",
+        "linked_trigger_option_b": "Medium"
+      }
     }
   },
   "order": [
@@ -1277,6 +1333,7 @@
     "section_tHgR7r",
     "section_Gkw3X4",
     "section_9R37HV",
-    "custom_liquid_ebgCpY"
+    "custom_liquid_ebgCpY",
+    "product_grid_9jEVt6"
   ]
 }

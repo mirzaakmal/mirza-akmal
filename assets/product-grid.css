@@ -41,24 +41,23 @@ display: block;
 }
 
 .product-grid__plus-btn {
-position: absolute;
-top: 12px;
-right: 12px;
-width: 32px;
-height: 32px;
-border-radius: 50%;
-border: 1px solid #e5e5e5;
-background-color: rgba(255, 255, 255, 0.95);
-font-size: 18px;
-line-height: 1;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: transform 0.2s ease, background-color 0.2s ease;
-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  transform: translate(-50%, -50%); /* Centers the plus sign on the coordinate */
+  z-index: 5;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
 }
-
 .product-grid__plus-btn:hover {
 transform: scale(1.08);
 background-color: #ffffff;

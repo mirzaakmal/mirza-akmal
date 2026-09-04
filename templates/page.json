@@ -741,9 +741,9 @@
                   "settings": {
                     "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
                     "link": "",
-                    "image_ratio": "square",
-                    "width": "fill",
-                    "custom_width": 83,
+                    "image_ratio": "portrait",
+                    "width": "custom",
+                    "custom_width": 90,
                     "width_mobile": "fill",
                     "custom_width_mobile": 100,
                     "height": "fit",
@@ -752,10 +752,10 @@
                     "border_opacity": 100,
                     "border_color": "",
                     "border_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-block-start": 10,
+                    "padding-block-end": 10,
+                    "padding-inline-start": 10,
+                    "padding-inline-end": 10
                   },
                   "blocks": {}
                 }
@@ -809,9 +809,9 @@
                   "settings": {
                     "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
                     "link": "",
-                    "image_ratio": "square",
-                    "width": "fill",
-                    "custom_width": 83,
+                    "image_ratio": "portrait",
+                    "width": "custom",
+                    "custom_width": 90,
                     "width_mobile": "fill",
                     "custom_width_mobile": 100,
                     "height": "fit",
@@ -820,10 +820,10 @@
                     "border_opacity": 100,
                     "border_color": "",
                     "border_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-block-start": 10,
+                    "padding-block-end": 10,
+                    "padding-inline-start": 10,
+                    "padding-inline-end": 10
                   },
                   "blocks": {}
                 }
@@ -877,9 +877,9 @@
                   "settings": {
                     "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
                     "link": "",
-                    "image_ratio": "square",
-                    "width": "fill",
-                    "custom_width": 83,
+                    "image_ratio": "portrait",
+                    "width": "custom",
+                    "custom_width": 90,
                     "width_mobile": "fill",
                     "custom_width_mobile": 100,
                     "height": "fit",

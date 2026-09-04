@@ -689,10 +689,10 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
-            "padding-block-start": 10,
+            "padding-block-start": 20,
             "padding-block-end": 0,
-            "padding-inline-start": 20,
-            "padding-inline-end": 20
+            "padding-inline-start": 40,
+            "padding-inline-end": 40
           },
           "blocks": {
             "group_tAJzFg": {

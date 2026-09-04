@@ -41,23 +41,18 @@ display: block;
 
 .product-grid__plus-btn {
   position: absolute;
-  /* Remove top: 12px and right: 12px */
+  transform: translate(-50%, -50%);
   width: 28px;
   height: 28px;
   border-radius: 50%;
   border: none;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #000;
-  font-size: 16px;
-  line-height: 1;
+  background-color: #ffffff;
+  color: #000000;
   cursor: pointer;
-  display: font-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(-50%, -50%); /* Centers the hotspot circle exactly on the point */
-  transition: transform 0.2s ease, background-color 0.2s ease;
   z-index: 2;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .product-grid__plus-btn:hover {

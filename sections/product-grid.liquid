@@ -29,6 +29,40 @@
   <div class="product-grid__items">
     {%- for block in section.blocks -%}
       {%- assign grid_product = block.settings.product -%}
+      {%- comment -%} Assign X/Y coordinates per product index {%- endcomment -%}
+{%- case forloop.index -%}
+  {%- when 1 -%}
+    {%- assign pos_x = 63 -%}
+    {%- assign pos_y = 27 -%}
+  {%- when 2 -%}
+    {%- assign pos_x = 83 -%}
+    {%- assign pos_y = 26 -%}
+  {%- when 3 -%}
+    {%- assign pos_x = 88 -%}
+    {%- assign pos_y = 11 -%}
+  {%- when 4 -%}
+    {%- assign pos_x = 78 -%}
+    {%- assign pos_y = 21 -%}
+  {%- when 5 -%}
+    {%- assign pos_x = 68 -%}
+    {%- assign pos_y = 28 -%}
+  {%- when 6 -%}
+    {%- assign pos_x = 87 -%}
+    {%- assign pos_y = 35 -%}
+  {%- else -%}
+    {%- assign pos_x = 50 -%}
+    {%- assign pos_y = 50 -%}
+{%- endcase -%}
+
+{%- comment -%} Button HTML with inline dynamic style {%- endcomment -%}
+<button
+  type="button"
+  class="product-grid__plus-btn"
+  style="top: {{ pos_y }}%; left: {{ pos_x }}%;"
+  data-open-product-modal
+>
+  <span aria-hidden="true">+</span>
+</button>
       <div class="product-grid__item" {{ block.shopify_attributes }}>
 
 

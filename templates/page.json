@@ -610,7 +610,7 @@
         "product_FgH8Hk"
       ],
       "custom_css": [
-        "h2 {text-align: left; font-family: Lustria; font-weight: 400; padding: 0px 20px 0px 0px}"
+        "h2 {text-align: left; font-family: Lustria; font-weight: 400; padding-left: 70px;}"
       ],
       "name": "Product Grid",
       "settings": {

@@ -609,9 +609,12 @@
         "product_B9j3Dg",
         "product_FgH8Hk"
       ],
+      "custom_css": [
+        "h2 {text-align: left; font-family: Lustria; font-weight: 400; }"
+      ],
       "name": "Product Grid",
       "settings": {
-        "heading": "",
+        "heading": "Tisso vison in the world",
         "linked_product": "dark-winter-jacket",
         "linked_trigger_option_a": "Black",
         "linked_trigger_option_b": "Medium"

@@ -37,20 +37,12 @@
       "type": "gift-banner",
       "name": "Gift Banner",
       "settings": {
-        "logo_text": "TISSO VISON",
-        "tagline_text": "Find the ideal gift for your loved ones.",
-        "choose_gift_label": "CHOOSE GIFT",
-        "choose_gift_link": "",
-        "choose_gift_bg": "#f4d935",
-        "choose_gift_text_color": "#111111",
-        "heading_text": "The Gift Guide",
-        "description_text": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
-        "shop_now_label": "SHOP NOW",
-        "shop_now_link": "",
-        "shop_now_bg": "#111111",
-        "shop_now_text_color": "#ffffff",
-        "bottom_text": "",
-        "section_bg": "#f4f4f4"
+        "heading": "The Gift Guide",
+        "text": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
+        "image": "shopify://shop_images/man-adjusts-blue-tuxedo-bowtie_925x_55a49e12-d54b-488e-b7a0-ea4c201eb01f.jpg",
+        "button_label": "SHOP NOW",
+        "button_link": "",
+        "footer_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
       }
     },
     "section_tnaNdn": {

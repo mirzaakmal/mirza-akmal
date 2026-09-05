@@ -47,18 +47,11 @@
       {% endif %}
 
       {% if section.settings.button_label != blank %}
-        <div class="gift-banner__button-mobile">
-          <a
-            {% if section.settings.button_link == blank %}
-              role="link" aria-disabled="true"
-            {% else %}
-              href="{{ section.settings.button_link }}"
-            {% endif %}
-            class="gift-banner__button"
-          >
-            {{ section.settings.button_label | escape }} →
-          </a>
-        </div>
+        
+<a href="#" class="custom-gift-button">
+  <span>CHOOSE GIFT</span>
+  <span class="custom-gift-arrow">→</span>
+</a>
       {% endif %}
     </div>
   </div>

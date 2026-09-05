@@ -91,6 +91,65 @@
   text-transform: uppercase;
   color: #333333;
 }
+  .custom-gift-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 180px;
+    height: 40px;
+    padding: 0 30px 0 30px;
+    box-sizing: border-box;
+
+    background: #fff200;
+    color: #000;
+    text-decoration: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 525;
+    letter-spacing: 0.1px;
+
+    overflow: hidden;
+    transition: color 0.3s ease;
+  }
+
+  .custom-gift-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #000;
+    transition: width 0.35s ease;
+    z-index: 0;
+  }
+
+  .custom-gift-button:hover::before {
+    width: 100%;
+  }
+
+  .custom-gift-button span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .custom-gift-button:hover {
+    color: #ffff;
+  }
+
+  .custom-gift-arrow {
+    font-size: 17px;
+    font-weight: normal;
+    transition: transform 0.35s ease;
+  }
+
+  .custom-gift-button:hover .custom-gift-arrow {
+    transform: translateX(4px);
+  }
+
+
 
 /* Desktop Layout */
 @media screen and (min-width: 750px) {

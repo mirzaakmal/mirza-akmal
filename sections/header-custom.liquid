@@ -1,1 +1,76 @@
+{{ 'header-custom.css' | asset_url | stylesheet_tag }}
 
+<header class="custom-header">
+  <div class="custom-header__container">
+    
+    <!-- Left: Brand Logo / Name -->
+    <div class="custom-header__logo">
+      <a href="{{ routes.root_url }}">
+        {% if section.settings.logo != blank %}
+          {{ section.settings.logo | image_url: width: 300 | image_tag: alt: shop.name }}
+        {% else %}
+          <span class="custom-header__logo-text">{{ section.settings.logo_text | default: shop.name }}</span>
+        {% endif %}
+      </a>
+    </div>
+
+    <!-- Center: Announcement Text -->
+    <div class="custom-header__center">
+      {% if section.settings.center_text != blank %}
+        <p class="custom-header__announcement">{{ section.settings.center_text }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Right: Header Action Button -->
+    <div class="custom-header__right">
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="custom-header__btn">
+          <span>{{ section.settings.button_label }}</span>
+          <span class="custom-header__btn-arrow">→</span>
+        </a>
+      {% endif %}
+    </div>
+
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Custom Top Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "TISSO VISON"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "center_text",
+      "label": "Center Announcement Text",
+      "default": "Find the ideal gift for your loved ones."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "CHOOSE GIFT"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Top Header"
+    }
+  ]
+}
+{% endschema %}

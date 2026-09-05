@@ -76,19 +76,29 @@
   transform: scaleX(1);
 }
 
-.custom-header__btn:hover-arrow {
-  opacity: 1;
-  max-width: 20px;
-  margin-left: 8px;
-  transform: translateX(0);
-}
-.gift-banner__button-arrow {
+.custom-header__btn-arrow {
   display: inline-block;
   opacity: 0;
   max-width: 0;
   margin-left: 0;
   transform: translateX(-6px);
   transition: max-width 0.35s ease, opacity 0.25s ease, transform 0.35s ease, margin-left 0.35s ease;
+}
+
+/* Hover State Effects */
+.custom-header__btn:hover {
+  color: #000000;
+}
+
+.custom-header__btn:hover::before {
+  transform: scaleX(1);
+}
+
+.custom-header__btn:hover .custom-header__btn-arrow {
+  opacity: 1;
+  max-width: 20px;
+  margin-left: 8px;
+  transform: translateX(0);
 }
 
 /* Hamburger Toggle Button - HIDDEN ON DESKTOP */

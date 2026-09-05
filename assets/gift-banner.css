@@ -84,6 +84,7 @@
 
 .gift-banner__hero {
   position: relative;
+  min-height: 480px; /* safety net so text/CTA don't collapse to the top if no image is set yet */
 }
 
 .gift-banner__text {

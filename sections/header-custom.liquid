@@ -3,14 +3,14 @@
 <header class="custom-header">
   <div class="custom-header__container">
     
-    <!-- Left: Hamburger Toggle (Mobile Only) -->
+    <!-- Mobile Hamburger Toggle -->
     <button type="button" class="custom-header__mobile-toggle" id="HeaderMobileToggle" aria-label="Toggle navigation menu">
       <span class="hamburger-bar"></span>
       <span class="hamburger-bar"></span>
       <span class="hamburger-bar"></span>
     </button>
 
-    <!-- Logo: Boxed Style -->
+    <!-- Logo -->
     <div class="custom-header__logo">
       <a href="{{ routes.root_url }}">
         <span class="custom-header__logo-text">{{ section.settings.logo_text | default: 'TISSO VISON' }}</span>
@@ -36,7 +36,7 @@
 
   </div>
 
-  <!-- Mobile Collapsible Menu Drawer -->
+  <!-- Mobile Drawer -->
   <div class="custom-header__mobile-drawer" id="HeaderMobileDrawer">
     <div class="custom-header__mobile-content">
       {% if section.settings.center_text != blank %}

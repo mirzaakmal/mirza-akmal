@@ -65,17 +65,6 @@
   transition: opacity 0.2s ease;
 }
 
-.custom-header__btn:hover {
-  opacity: 0.85;
-  background-color: #000000;
-  color: #ffffff;
-}
-
-
-.custom-header__btn:hover::before {
-  transform: scaleX(1);
-}
-
 .custom-header__btn-arrow {
   display: inline-block;
   opacity: 0;
@@ -85,9 +74,10 @@
   transition: max-width 0.35s ease, opacity 0.25s ease, transform 0.35s ease, margin-left 0.35s ease;
 }
 
-/* Hover State Effects */
 .custom-header__btn:hover {
-  color: #000000;
+  opacity: 0.85;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .custom-header__btn:hover::before {

@@ -181,6 +181,7 @@
   .gift-banner__text {
     margin: 0;
     font-size: 20px;
+    font-family: jost;
     padding: 20px 0 20px 0;
     line-height: 1.4;
     max-width: 500px;
@@ -201,5 +202,7 @@
   width: 183px;
   height: 45px;
   padding: 0 20px;
+    font-family: jost;
+    border: none;
   box-sizing: border-box;
 }

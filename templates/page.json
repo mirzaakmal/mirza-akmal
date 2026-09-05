@@ -41,16 +41,16 @@
         "tagline_text": "Find the ideal gift for your loved ones.",
         "choose_gift_label": "CHOOSE GIFT",
         "choose_gift_link": "",
-        "choose_gift_bg": "#F4D935",
+        "choose_gift_bg": "#f4d935",
         "choose_gift_text_color": "#111111",
         "heading_text": "The Gift Guide",
         "description_text": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
         "shop_now_label": "SHOP NOW",
         "shop_now_link": "",
         "shop_now_bg": "#111111",
-        "shop_now_text_color": "#FFFFFF",
-        "bottom_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
-        "section_bg": "#F4F4F4"
+        "shop_now_text_color": "#ffffff",
+        "bottom_text": "",
+        "section_bg": "#f4f4f4"
       }
     },
     "section_tnaNdn": {
@@ -536,6 +536,7 @@
       "name": "t:names.hero_bottom_aligned",
       "settings": {
         "media_type_1": "image",
+        "image_1": "shopify://shop_images/young-man-in-bright-fashion_925x_b3b7ebd6-c91f-496a-a516-45403497ea25.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,

@@ -101,7 +101,7 @@
 
   /* Controlled image height on desktop */
   .gift-banner__media img {
-    height: 750px; /* Adjust height limit as needed */
+    height: 650px; /* Adjust height limit as needed */
     object-fit: cover;
   }
 

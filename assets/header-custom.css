@@ -64,6 +64,19 @@
 
 .custom-header__btn:hover {
   opacity: 0.85;
+  color: #000000;
+}
+
+
+.custom-header__btn:hover::before {
+  transform: scaleX(1);
+}
+
+.custom-header__btn:hover .gift-banner__button-arrow {
+  opacity: 1;
+  max-width: 20px;
+  margin-left: 8px;
+  transform: translateX(0);
 }
 
 /* Hamburger Toggle Button - HIDDEN ON DESKTOP */

@@ -78,7 +78,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff200; /* Yellow hover fill */
+  background-color: #000000; /* Yellow hover fill */
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);

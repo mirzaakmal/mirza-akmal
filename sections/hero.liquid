@@ -726,28 +726,32 @@
 
   /* Updated Mobile Specific Layout */
   /* Updated Mobile Specific Layout */
+  /* Clean Mobile Specific Layout */
   @media screen and (max-width: 749px) {
     .hero__container {
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
       background-color: #ffffff !important;
-      min-height: auto !important;
       position: relative !important;
-      padding-bottom: 50px !important;
+      padding: 30px 0 40px 0 !important;
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
     }
 
+    /* Content block stays on top */
     .hero__content-wrapper {
       position: relative !important;
       order: 1 !important;
       width: 100% !important;
-      padding: 40px 20px 0px 20px !important;
+      padding: 0 20px !important;
       text-align: center !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
       background: #ffffff !important;
-      z-index: 1 !important;
+      z-index: 2 !important;
     }
 
     .hero__content-wrapper h1,
@@ -758,10 +762,9 @@
       letter-spacing: -0.02em !important;
       color: #000000 !important;
       text-align: center !important;
-      margin-bottom: 16px !important;
+      margin-bottom: 12px !important;
     }
 
-    /* Tighter text wrapping to match prototype line count */
     .hero__content-wrapper p,
     .hero__content-wrapper [class*="text"] {
       font-size: 15px !important;
@@ -769,16 +772,18 @@
       color: #1a1a1a !important;
       text-align: center !important;
       max-width: 260px !important;
-      margin: 0 auto 0 auto !important;
+      margin: 0 auto 16px auto !important;
     }
 
+    /* Media grid sits in middle flow */
     .hero__media-grid {
       position: relative !important;
       order: 2 !important;
       width: 100% !important;
       height: auto !important;
       z-index: 1 !important;
-      margin-top: 20px !important;
+      margin-top: 10px !important;
+      margin-bottom: 24px !important;
     }
 
     .hero__media {
@@ -787,20 +792,22 @@
       display: block !important;
     }
 
-    /* Position button directly over the lower portion of the image */
+    /* Button sits cleanly at the bottom flow */
     .hero__container .hero__content-wrapper .button-block,
     .hero__container .hero__content-wrapper a.button,
     .hero__container .hero__content-wrapper .btn,
     .hero__container .hero__content-wrapper [class*="button"] {
-      position: absolute !important;
-      top: 100% !important;
-      left: 50% !important;
-      transform: translate(-50%, 140px) !important;
-      z-index: 20 !important;
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+      transform: none !important;
+      order: 3 !important;
+      margin-top: 16px !important;
       background-color: #000000 !important;
       color: #ffffff !important;
       padding: 14px 32px !important;
       white-space: nowrap !important;
+      display: inline-block !important;
     }
   }
 {% endstylesheet %}

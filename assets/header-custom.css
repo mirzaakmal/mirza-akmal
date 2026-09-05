@@ -94,21 +94,21 @@
 }
 
 /* Expanding Arrow Animation */
+/* Arrow Visible by Default */
 .custom-header__btn-arrow {
   display: inline-block;
-  opacity: 0;
-  max-width: 0;
-  color: #000000;
-  margin-left: 0;
-  transform: translateX(-6px);
-  transition: max-width 0.35s ease, opacity 0.25s ease, transform 0.35s ease, margin-left 0.35s ease;
+  opacity: 1;                 /* Fully visible initially */
+  max-width: 20px;            /* Always takes up space */
+  color: #ffffff;             /* Matches white text before hover */
+  margin-left: 6px;
+  transform: translateX(0);
+  transition: transform 0.35s ease, color 0.35s ease;
 }
 
+/* Arrow Hover Shift */
 .custom-header__btn:hover .custom-header__btn-arrow {
-  opacity: 1;
-  max-width: 20px;
-  margin-left: 8px;
-  transform: translateX(0);
+  color: #000000;             /* Turns black with hover text */
+  transform: translateX(4px);  /* Subtle nudge to the right on hover */
 }
 
 /* Hamburger Toggle Button - HIDDEN ON DESKTOP */

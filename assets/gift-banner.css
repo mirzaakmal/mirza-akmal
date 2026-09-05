@@ -1,307 +1,131 @@
-/* gift-banner.css
-   Scratch-built styles for the Gift Banner section.
-   No Dawn classes are reused anywhere in this file. */
-
 .gift-banner {
+  position: relative;
   width: 100%;
   overflow: hidden;
 }
 
-/* ── Top bar ─────────────────────────────────────────── */
-
-.gift-banner__topbar {
+/* Mobile Layout: Stacked Top-to-Bottom */
+.gift-banner__container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 18px 32px;
-}
-
-.gift-banner__hamburger {
-  display: none; /* shown on mobile only */
   flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-}
-
-.gift-banner__hamburger span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: currentColor;
-}
-
-.gift-banner__logo {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-decoration: none;
-  color: inherit;
-  white-space: nowrap;
-}
-
-/* On desktop this wrapper is invisible to layout: its children
-   (tagline + actions) become direct flex items of .gift-banner__topbar,
-   preserving the original left/center/right layout exactly. */
-.gift-banner__menu-panel {
-  display: contents;
-}
-
-.gift-banner__tagline {
-  margin: 0;
-  font-size: 14px;
-  text-align: center;
-  flex: 1 1 auto;
-  white-space: nowrap;
-}
-
-.gift-banner__topbar-actions {
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 14px;
-}
-
-.gift-banner__menu-icon {
-  background: none;
-  border: none;
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  padding: 4px 8px;
-}
-
-/* ── Hero ────────────────────────────────────────────── */
-/* Desktop: text block overlays the image at the bottom-left,
-   with the CTA button just below it, also overlaid. */
-
-.gift-banner__hero {
+  width: 100%;
   position: relative;
-  min-height: 480px; /* safety net so text/CTA don't collapse to the top if no image is set yet */
 }
 
-.gift-banner__text {
-  position: absolute;
-  left: 32px;
-  bottom: 130px;
-  z-index: 2;
-  max-width: 460px;
+.gift-banner__content {
+  text-align: center;
+  padding: 30px 20px 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Spacing between heading and text on mobile */
 }
 
 .gift-banner__heading {
-  font-size: 52px;
-  line-height: 1.05;
-  font-weight: 800;
-  margin: 0 0 16px;
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0;
+  color: #000000;
 }
 
-.gift-banner__description {
-  font-size: 15px;
+.gift-banner__text {
+  font-size: 14px;
   line-height: 1.5;
-  margin: 0;
-  background-color: rgba(255, 255, 255, 0.001); /* keeps text readable without a hard box */
+  color: #333333;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
-.gift-banner__description p {
-  margin: 0;
-}
-
-.gift-banner__visual {
+.gift-banner__media {
+  position: relative;
   width: 100%;
-  /* No position:relative here on desktop — this is intentional.
-     It means .gift-banner__cta (absolute, lives inside this wrapper)
-     bubbles up to the nearest positioned ancestor, which is
-     .gift-banner__hero — the SAME container .gift-banner__text uses.
-     That keeps heading + description + button moving together as one
-     group regardless of whether an illustration image is set yet.
-     (Mobile overrides this back to position:relative further down,
-     so the button overlays the image specifically on small screens.) */
 }
 
-.gift-banner__illustration-img {
+.gift-banner__media img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
 }
 
-.gift-banner__cta {
+.gift-banner__button-mobile {
   position: absolute;
-  left: 32px;
-  bottom: 24px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
 }
 
-/* ── Animated buttons (shared by both CTAs) ─────────────
-   Hover: arrow slides right, background sweep fills in,
-   button lifts slightly with a soft shadow. Driven by CSS
-   custom properties (--btn-bg / --btn-color) set inline
-   per-instance from the section settings. */
+.gift-banner__button-desktop {
+  display: none;
+}
 
-.gift-banner__btn {
-  position: relative;
+.gift-banner__button {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  overflow: hidden;
-  isolation: isolate;
-  padding: 14px 26px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  white-space: nowrap;
-  background-color: var(--btn-bg, #111111);
-  color: var(--btn-color, #ffffff);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.gift-banner__btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-color: var(--btn-color, #ffffff);
-  opacity: 0.12;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.3s ease;
-}
-
-.gift-banner__btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-}
-
-.gift-banner__btn:hover::before {
-  transform: scaleX(1);
-}
-
-.gift-banner__btn-arrow {
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.gift-banner__btn:hover .gift-banner__btn-arrow {
-  transform: translateX(6px);
-}
-
-/* ── Footer strip ────────────────────────────────────── */
-
-.gift-banner__footer {
+  justify-content: center;
+  background-color: #000000;
+  color: #ffffff;
   padding: 14px 32px;
-  text-align: center;
-}
-
-.gift-banner__footer-text {
-  margin: 0;
-  font-size: 12px;
-  font-weight: 600;
+  text-decoration: none;
+  font-size: 13px;
   letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: fit-content;
 }
 
-/* ── Mobile view ─────────────────────────────────────────
-   - Hamburger replaces tagline + Choose Gift button.
-   - Heading/description move above the image in normal flow.
-   - Only the Shop Now button stays overlaid, centered on the image. */
+.gift-banner__footer-bar {
+  width: 100%;
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 12px 16px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #333333;
+}
 
-@media screen and (max-width: 749px) {
-
-  .gift-banner__topbar {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 12px;
-    padding: 14px 20px;
-    position: relative;
-  }
-
-  .gift-banner__hamburger {
-    display: flex;
-  }
-
-  .gift-banner__logo {
-    flex: 1;
-    text-align: center;
-    padding-right: 24px; /* visually balances the hamburger's width */
-  }
-
-  /* The panel stops being `display: contents` on mobile and becomes a
-     real collapsible block containing the tagline + Choose Gift button,
-     toggled open/closed by the hamburger via the [data-open] attribute. */
-  .gift-banner__menu-panel {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
+/* Desktop Layout (750px and up) */
+@media screen and (min-width: 750px) {
+  .gift-banner__container {
+    display: block;
     width: 100%;
-    order: 3;
-    padding-top: 14px;
   }
 
-  .gift-banner__menu-panel[data-open="true"] {
-    display: flex;
-  }
-
-  .gift-banner__tagline {
+  /* Position content in bottom left corner with 50px left padding */
+  .gift-banner__content {
+    position: absolute;
+    bottom: 50px;
+    top: auto;
+    left: 0;
+    transform: none;
+    z-index: 2;
     text-align: left;
-    white-space: normal;
-    flex: none;
-  }
-
-  .gift-banner__topbar-actions {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    width: 100%;
-  }
-
-  .gift-banner__menu-icon {
-    display: none; /* redundant with the hamburger on mobile */
-  }
-
-  .gift-banner__hero {
+    max-width: 420px;
+    padding: 0 0 0 50px; /* 50px left padding */
     display: flex;
     flex-direction: column;
-  }
-
-  .gift-banner__text {
-    position: static;
-    order: 1;
-    max-width: 100%;
-    padding: 20px 20px 12px;
+    gap: 20px; /* Space between heading, text, and button */
   }
 
   .gift-banner__heading {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 40px;
+    margin: 0;
   }
 
-  .gift-banner__visual {
-    order: 2;
-    position: relative; /* on mobile, the button overlays this image specifically */
+  .gift-banner__text {
+    margin: 0;
+    font-size: 15px;
+    max-width: 100%;
   }
 
-  .gift-banner__cta {
-    left: 50%;
-    bottom: 20px;
-    transform: translateX(-50%);
+  .gift-banner__button-mobile {
+    display: none;
   }
 
-  .gift-banner__cta:hover {
-    transform: translateX(-50%) translateY(-2px);
-  }
-
-  .gift-banner__footer {
-    padding: 14px 20px;
-  }
-
-  .gift-banner__footer-text {
-    font-size: 11px;
+  .gift-banner__button-desktop {
+    display: block;
   }
 }

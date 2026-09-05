@@ -19,10 +19,25 @@
   style="background-color: {{ section.settings.section_bg }};"
 >
 
-  {%- comment -%} ── Top bar ── {%- endcomment -%}
+  {%- comment -%}
+    ── Top bar ──
+    On desktop, .gift-banner__menu-panel uses `display: contents` so its
+    children (tagline + actions) lay out exactly like plain topbar items —
+    the wrapper is invisible to the flex layout.
+    On mobile, that same wrapper becomes a real collapsible panel that the
+    hamburger button shows/hides via the small script at the bottom of
+    this file (vanilla JS, no jQuery).
+  {%- endcomment -%}
   <div class="gift-banner__topbar">
 
-    <button type="button" class="gift-banner__hamburger" aria-label="Menu">
+    <button
+      type="button"
+      class="gift-banner__hamburger"
+      data-menu-toggle
+      aria-expanded="false"
+      aria-controls="GiftBannerMenu-{{ section.id }}"
+      aria-label="Toggle menu"
+    >
       <span></span>
       <span></span>
       <span></span>
@@ -32,28 +47,32 @@
       {{ section.settings.logo_text }}
     </a>
 
-    {%- if section.settings.tagline_text != blank -%}
-      <p class="gift-banner__tagline">{{ section.settings.tagline_text }}</p>
-    {%- endif -%}
+    <div class="gift-banner__menu-panel" id="GiftBannerMenu-{{ section.id }}" data-menu-panel>
 
-    <div class="gift-banner__topbar-actions">
-      {%- if section.settings.choose_gift_label != blank -%}
-        <a
-          href="{{ section.settings.choose_gift_link | default: '#' }}"
-          class="gift-banner__btn gift-banner__btn--accent"
-          style="
-            --btn-bg: {{ section.settings.choose_gift_bg }};
-            --btn-color: {{ section.settings.choose_gift_text_color }};
-          "
-        >
-          <span class="gift-banner__btn-label">{{ section.settings.choose_gift_label }}</span>
-          <span class="gift-banner__btn-arrow" aria-hidden="true">&rarr;</span>
-        </a>
+      {%- if section.settings.tagline_text != blank -%}
+        <p class="gift-banner__tagline">{{ section.settings.tagline_text }}</p>
       {%- endif -%}
 
-      <button type="button" class="gift-banner__menu-icon" aria-label="More options">
-        &#8942;
-      </button>
+      <div class="gift-banner__topbar-actions">
+        {%- if section.settings.choose_gift_label != blank -%}
+          <a
+            href="{{ section.settings.choose_gift_link | default: '#' }}"
+            class="gift-banner__btn gift-banner__btn--accent"
+            style="
+              --btn-bg: {{ section.settings.choose_gift_bg }};
+              --btn-color: {{ section.settings.choose_gift_text_color }};
+            "
+          >
+            <span class="gift-banner__btn-label">{{ section.settings.choose_gift_label }}</span>
+            <span class="gift-banner__btn-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        {%- endif -%}
+
+        <button type="button" class="gift-banner__menu-icon" aria-label="More options">
+          &#8942;
+        </button>
+      </div>
+
     </div>
 
   </div>
@@ -111,6 +130,28 @@
   {%- endif -%}
 
 </section>
+
+{%- comment -%}
+  Vanilla JS only (no jQuery). Toggles the mobile menu panel that holds
+  the tagline + Choose Gift button. Scoped so multiple Gift Banner
+  sections on one page won't interfere with each other.
+{%- endcomment -%}
+<script>
+  (function () {
+    'use strict';
+    var toggle = document.querySelector(
+      '[aria-controls="GiftBannerMenu-{{ section.id }}"]'
+    );
+    var panel = document.getElementById('GiftBannerMenu-{{ section.id }}');
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener('click', function () {
+      var isOpen = panel.getAttribute('data-open') === 'true';
+      panel.setAttribute('data-open', String(!isOpen));
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -229,4 +270,3 @@
   ]
 }
 {% endschema %}
-

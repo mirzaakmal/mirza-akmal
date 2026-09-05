@@ -693,10 +693,21 @@
         "linked_trigger_option_a": "Black",
         "linked_trigger_option_b": "Medium"
       }
+    },
+    "header_custom_QmQWWN": {
+      "type": "header-custom",
+      "name": "Custom Header",
+      "settings": {
+        "logo_text": "TISSO VISON",
+        "center_text": "Find the ideal gift for your loved ones.",
+        "button_label": "CHOOSE GIFT",
+        "button_link": ""
+      }
     }
   },
   "order": [
     "main",
+    "header_custom_QmQWWN",
     "gift_banner_kha4Km",
     "section_tnaNdn",
     "hero_zJKBrF",

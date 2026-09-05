@@ -1,10 +1,13 @@
 .gift-banner {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   overflow: hidden;
 }
 
-/* Mobile Layout: Stacked Top-to-Bottom */
+/* Base Mobile Layout */
 .gift-banner__container {
   display: flex;
   flex-direction: column;
@@ -19,7 +22,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Spacing between heading and text on mobile */
+  gap: 16px;
 }
 
 .gift-banner__heading {
@@ -87,14 +90,19 @@
   color: #333333;
 }
 
-/* Desktop Layout (750px and up) */
+/* Desktop Layout */
 @media screen and (min-width: 750px) {
   .gift-banner__container {
     display: block;
     width: 100%;
   }
 
-  /* Position content in bottom left corner with 50px left padding */
+  /* Controlled image height on desktop */
+  .gift-banner__media img {
+    height: 520px; /* Adjust height limit as needed */
+    object-fit: cover;
+  }
+
   .gift-banner__content {
     position: absolute;
     bottom: 50px;
@@ -104,10 +112,10 @@
     z-index: 2;
     text-align: left;
     max-width: 420px;
-    padding: 0 0 0 50px; /* 50px left padding */
+    padding: 0 0 0 50px; /* 50px padding from left edge */
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between heading, text, and button */
+    gap: 20px;
   }
 
   .gift-banner__heading {

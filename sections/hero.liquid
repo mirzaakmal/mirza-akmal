@@ -28,6 +28,7 @@
   endif
 
   if section.settings.custom_mobile_media
+    # Mobile media checks
     if section.settings.image_1_mobile != blank and section.settings.media_type_1_mobile == 'image'
       assign media_1_mobile = 'image'
       assign media_count_mobile = media_count_mobile | plus: 1
@@ -103,14 +104,11 @@
 
 {% capture media_slot_1 %}
   {%- if media_1 == 'image' and media_1_mobile == 'image' -%}
-    <picture
-      data-testid="hero-picture-1"
-      class="hero__media"
-    >
+    <picture data-testid="hero-picture-1" class="hero__media">
       <source
         media="(max-width: 749px)"
         srcset="
-          {%-  for mobile_width in mobile_widths_array -%}
+          {%- for mobile_width in mobile_widths_array -%}
             {{ section.settings.image_1_mobile | image_url: width: mobile_width }} {{ mobile_width }}w{% unless forloop.last %},{% endunless %}
           {%- endfor -%}
         "
@@ -205,14 +203,11 @@
 
 {% capture media_slot_2 %}
   {%- if media_2 == 'image' and media_2_mobile == 'image' -%}
-    <picture
-      class="hero__media"
-      data-testid="hero-picture-2"
-    >
+    <picture class="hero__media" data-testid="hero-picture-2">
       <source
         media="(max-width: 749px)"
         srcset="
-          {%-  for mobile_width in mobile_widths_array -%}
+          {%- for mobile_width in mobile_widths_array -%}
             {{ section.settings.image_2_mobile | image_url: width: mobile_width }} {{ mobile_width }}w{% unless forloop.last%},{% endunless %}
           {%- endfor -%}
         "
@@ -350,26 +345,30 @@
   {% if section.settings.stack_media_on_mobile == false %}
     {% if section.settings.custom_mobile_media == true and fallback_to_desktop == false %}
       {% if media_1_mobile == 'image' %}
-        {{ section.settings.image_1_mobile
+        {{
+          section.settings.image_1_mobile
           | image_url: width: 1600
-          | image_tag: width: section.settings.image_1_mobile.width,
+          | image_tag:
+            width: section.settings.image_1_mobile.width,
             widths: mobile_widths,
             height: section.settings.image_1_mobile.height,
             alt: '',
             class: 'hero__media',
             sizes: sizes_mobile
-          }}
+        }}
       {% endif %}
       {% if media_2_mobile == 'image' %}
-        {{ section.settings.image_2_mobile
+        {{
+          section.settings.image_2_mobile
           | image_url: width: 1600
-          | image_tag: width: section.settings.image_2_mobile.width,
+          | image_tag:
+            width: section.settings.image_2_mobile.width,
             widths: mobile_widths,
             height: section.settings.image_2_mobile.height,
             alt: '',
             class: 'hero__media',
             sizes: sizes_mobile
-          }}
+        }}
       {% endif %}
     {% elsif fallback_to_desktop %}
       {{ media_blurred }}
@@ -377,9 +376,11 @@
   {% elsif section.settings.stack_media_on_mobile == true %}
     {% if section.settings.custom_mobile_media == true and fallback_to_desktop == false %}
       {% if media_2_mobile == 'image' %}
-        {{ section.settings.image_2_mobile
+        {{
+          section.settings.image_2_mobile
           | image_url: width: 1600
-          | image_tag: width: section.settings.image_2_mobile.width,
+          | image_tag:
+            width: section.settings.image_2_mobile.width,
             widths: mobile_widths,
             height: section.settings.image_2_mobile.height,
             alt: '',
@@ -387,38 +388,44 @@
             sizes: sizes_mobile
         }}
       {% elsif media_1_mobile == 'image' %}
-        {{ section.settings.image_1_mobile
+        {{
+          section.settings.image_1_mobile
           | image_url: width: 1600
-          | image_tag: width: section.settings.image_1_mobile.width,
+          | image_tag:
+            width: section.settings.image_1_mobile.width,
             widths: mobile_widths,
             height: section.settings.image_1_mobile.height,
             alt: '',
             class: 'hero__media',
             sizes: sizes_mobile
-          }}
+        }}
       {% endif %}
     {% elsif fallback_to_desktop %}
       {% if media_count > 0 %}
         {% if media_2 == 'image' %}
-          {{ section.settings.image_2
+          {{
+            section.settings.image_2
             | image_url: width: 1600
-            | image_tag: width: section.settings.image_2.width,
+            | image_tag:
+              width: section.settings.image_2.width,
               widths: widths,
               height: section.settings.image_2.height,
               alt: '',
               class: 'hero__media',
               sizes: sizes
-            }}
+          }}
         {% elsif media_1 == 'image' %}
-          {{ section.settings.image_1
+          {{
+            section.settings.image_1
             | image_url: width: 1600
-            | image_tag: width: section.settings.image_1.width,
+            | image_tag:
+              width: section.settings.image_1.width,
               widths: widths,
               height: section.settings.image_1.height,
               alt: '',
               class: 'hero__media',
               sizes: sizes
-            }}
+          }}
         {% endif %}
         {% if media_count == 0 %}
           {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero__media' }}
@@ -724,85 +731,69 @@
     }
   }
 
-/* Mobile Layout - Direct Section Anchoring */
+  /* Target Mobile Layout Exclusively (Below 750px) */
   @media screen and (max-width: 749px) {
-    /* Main container is the absolute boundary */
+    .hero {
+      min-height: auto !important;
+    }
+
     .hero__container {
       display: flex !important;
       flex-direction: column !important;
-      align-items: center !important;
+      height: auto !important;
+      min-height: 0 !important;
       position: relative !important;
-      background-color: #ffffff !important;
-      padding-top: 30px !important;
-      padding-bottom: 0 !important;
-      margin: 0 !important;
     }
 
-    /* 1. Text Section at top */
     .hero__content-wrapper {
-      position: relative !important;
       order: 1 !important;
-      width: 100% !important;
-      padding: 0 20px !important;
-      text-align: center !important;
-      margin-bottom: 20px !important;
-    }
-
-    .hero__content-wrapper h1,
-    .hero__content-wrapper h2,
-    .hero__content-wrapper [class*="heading"] {
-      font-size: 30px !important;
-      font-weight: 700 !important;
-      line-height: 1.2 !important;
-      color: #000000 !important;
-      margin-bottom: 12px !important;
-    }
-
-    .hero__content-wrapper p,
-    .hero__content-wrapper [class*="text"] {
-      font-size: 15px !important;
-      line-height: 1.45 !important;
-      color: #222222 !important;
-      max-width: 320px !important;
-      margin: 0 auto !important;
-    }
-
-    /* 2. Full-width Image in middle */
-    .hero__media-grid {
       position: relative !important;
-      order: 2 !important;
+      inset: auto !important;
+      background: #ffffff !important;
+      padding: 30px 20px 20px 20px !important;
+      text-align: center !important;
       width: 100% !important;
       margin: 0 !important;
-      display: block !important;
+    }
+
+    .hero__content-wrapper :is(h1, h2, h3, p, span):not(:is(a, button, [class*="button"])) {
+      position: relative !important;
+      inset: auto !important;
+      text-align: center !important;
+    }
+
+    .hero__media-grid {
+      order: 2 !important;
+      position: relative !important;
+      inset: auto !important;
+      width: 100% !important;
+      height: auto !important;
     }
 
     .hero__media-grid img,
-    .hero__media-grid svg,
-    .hero__media {
+    .hero__media-grid video,
+    .hero__media-grid picture,
+    .hero__media-wrapper {
+      position: relative !important;
       width: 100% !important;
       height: auto !important;
-      display: block !important;
+      max-height: 450px !important;
       object-fit: cover !important;
+      display: block !important;
     }
 
-    /* 3. Button pinned to bottom of the section over the image */
-    .hero__content-wrapper a,
-    .hero__content-wrapper .btn,
-    .hero__content-wrapper [class*="button"],
-    .hero__content-wrapper [data-block-type="button"] {
+    .hero__content-wrapper :is(a, button, [class*="button"], [class*="btn"]) {
       position: absolute !important;
-      bottom: 40px !important; /* Pin distance from section bottom */
+      top: calc(100% + 280px) !important;
       left: 50% !important;
-      transform: translateX(-50%) !important;
+      transform: translate(-50%, -50%) !important;
       z-index: 99 !important;
       background-color: #000000 !important;
       color: #ffffff !important;
-      padding: 14px 32px !important;
+      padding: 12px 28px !important;
       white-space: nowrap !important;
+      display: inline-block !important;
       text-decoration: none !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
     }
   }
 {% endstylesheet %}

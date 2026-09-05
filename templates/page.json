@@ -35,6 +35,9 @@
     },
     "gift_banner_kha4Km": {
       "type": "gift-banner",
+      "custom_css": [
+        "h2 {font-size: 70px;}"
+      ],
       "name": "Gift Banner",
       "settings": {
         "heading": "The Gift Guide",
@@ -244,7 +247,6 @@
         "group_CmRyXg",
         "group_r7NBqG"
       ],
-      "disabled": true,
       "custom_css": [],
       "name": "t:names.split_showcase",
       "settings": {
@@ -525,6 +527,7 @@
       "block_order": [
         "group_8rhJTJ"
       ],
+      "disabled": true,
       "name": "t:names.hero_bottom_aligned",
       "settings": {
         "media_type_1": "image",
@@ -590,6 +593,7 @@
       "block_order": [
         "text_MUwBgN"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "t:names.email_signup",
       "settings": {

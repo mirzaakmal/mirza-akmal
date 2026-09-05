@@ -50,7 +50,6 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  margin: 0 0 0 30px;
   justify-content: center;
   gap: 8px;
   background-color: #fff200; /* Dark base color */
@@ -121,6 +120,7 @@
   padding: 4px;
   flex-direction: column;
   gap: 5px;
+  margin: 0 0 0 30px;
 }
 
 .hamburger-bar {

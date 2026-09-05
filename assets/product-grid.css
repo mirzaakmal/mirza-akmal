@@ -309,54 +309,56 @@
 /* ── Mobile Viewport Overhaul (< 750px) ─────────────────── */
 @media screen and (max-width: 749px) {
   .product-grid {
-    padding: 24px 16px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 24px 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .product-grid__heading {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
+    text-align: center !important;
+    font-size: 24px !important;
+    margin: 0 0 20px 0 !important;
+    width: 100% !important;
   }
 
-  /* 2-Column Mobile Grid */
+  /* 2-Column Full-Width Mobile Grid */
   .product-grid__items {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin: 0;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin: 0 !important; /* Clears desktop side margins */
   }
 
-  /* Scaled down hotspot icon for mobile */
+  .product-grid__item {
+    width: 100% !important;
+  }
+
+  .product-grid__image-wrap {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  /* Compact Hotspot Icon */
   .product-grid__plus-btn {
-    width: 22px;
-    height: 22px;
-    font-size: 13px;
-    border-width: 1px;
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 13px !important;
   }
 
-  /* Centered Modal Popup on Mobile */
+  /* Centered Popup Modal */
   .product-modal {
-    padding: 16px;
-    box-sizing: border-box;
+    padding: 16px !important;
   }
 
   .product-modal__dialog {
-    width: 100%;
-    max-width: 360px;
-    padding: 24px 18px 20px 18px;
-    margin: auto;
-    border-radius: 0;
+    width: 100% !important;
+    max-width: 360px !important;
+    padding: 24px 18px 20px 18px !important;
+    margin: auto !important;
   }
 
-  .product-modal__media {
-    width: 100px;
-    height: 100px;
-  }
-
-  .product-modal__title {
-    font-size: 16px;
-  }
-
-  .product-modal__price {
-    font-size: 15px;
-  }
 }

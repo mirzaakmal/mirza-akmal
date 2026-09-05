@@ -35,6 +35,7 @@
     },
     "header_custom_QmQWWN": {
       "type": "header-custom",
+      "custom_css": [],
       "name": "Custom Header",
       "settings": {
         "logo_text": "TISSO VISON",

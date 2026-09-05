@@ -114,8 +114,15 @@
 }
 
 .gift-banner__visual {
-  position: relative;
   width: 100%;
+  /* No position:relative here on desktop — this is intentional.
+     It means .gift-banner__cta (absolute, lives inside this wrapper)
+     bubbles up to the nearest positioned ancestor, which is
+     .gift-banner__hero — the SAME container .gift-banner__text uses.
+     That keeps heading + description + button moving together as one
+     group regardless of whether an illustration image is set yet.
+     (Mobile overrides this back to position:relative further down,
+     so the button overlays the image specifically on small screens.) */
 }
 
 .gift-banner__illustration-img {
@@ -277,6 +284,7 @@
 
   .gift-banner__visual {
     order: 2;
+    position: relative; /* on mobile, the button overlays this image specifically */
   }
 
   .gift-banner__cta {

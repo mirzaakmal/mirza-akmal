@@ -170,6 +170,7 @@
   /* Heading forces onto 1 line */
   .gift-banner__heading {
     font-size: 70px;
+    font-family: jost;
     line-height: 1.1;
     margin: 0;
     padding: 0 0 0 0;

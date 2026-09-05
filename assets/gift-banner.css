@@ -161,7 +161,7 @@
     z-index: 2;
     text-align: left;
     max-width: 650px; /* Expanded width to give text space */
-    padding: 0 0 0 70px;
+    padding: 0 0 50px 70px;
     display: flex;
     flex-direction: column;
     gap: 20px;

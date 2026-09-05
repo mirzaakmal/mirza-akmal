@@ -1,1 +1,77 @@
+.custom-header {
+  width: 100%;
+  background-color: #f5f5f5; /* Light gray background matching reference */
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
 
+.custom-header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Left Logo */
+.custom-header__logo a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.custom-header__logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid #000000;
+  padding: 4px 8px;
+  display: inline-block;
+}
+
+/* Center Text */
+.custom-header__center {
+  text-align: center;
+  flex: 1;
+}
+
+.custom-header__announcement {
+  margin: 0;
+  font-size: 12px;
+  color: #000000;
+  letter-spacing: 0.5px;
+}
+
+/* Right Button */
+.custom-header__right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.custom-header__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fff200; /* Signature yellow background */
+  color: #000000;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid #000000;
+  transition: opacity 0.2s ease;
+}
+
+.custom-header__btn:hover {
+  opacity: 0.85;
+}
+
+/* Responsive Hide for Center Text on Small Screens */
+@media screen and (max-width: 749px) {
+  .custom-header__center {
+    display: none;
+  }
+}

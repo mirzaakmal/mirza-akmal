@@ -1,266 +1,114 @@
 {{ 'gift-banner.css' | asset_url | stylesheet_tag }}
 
-{%- comment -%}
-  Gift Banner section — built entirely from scratch (no Dawn classes/snippets).
+<div class="gift-banner" id="GiftBanner-{{ section.id }}">
+  <div class="gift-banner__container">
+    <div class="gift-banner__content">
+      {% if section.settings.heading != blank %}
+        <h2 class="gift-banner__heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
 
-  Layout logic:
-  - Desktop: heading/description/CTA float as one overlay block at the
-    bottom-left of the illustration image.
-  - Mobile: heading/description sit ABOVE the image in normal flow, and
-    only the "Shop Now" button overlays the image, centered at the bottom.
-  - The top bar swaps the tagline + "Choose Gift" button for a hamburger
-    icon on mobile.
-  All of this is done with plain CSS (flex + position), no JS needed,
-  and no duplicated markup between breakpoints.
-{%- endcomment -%}
+      {% if section.settings.text != blank %}
+        <div class="gift-banner__text">
+          {{ section.settings.text }}
+        </div>
+      {% endif %}
 
-<section
-  class="gift-banner"
-  style="background-color: {{ section.settings.section_bg }};"
->
-
-  {%- comment -%}
-    ── Top bar ──
-    On desktop, .gift-banner__menu-panel uses `display: contents` so its
-    children (tagline + actions) lay out exactly like plain topbar items —
-    the wrapper is invisible to the flex layout.
-    On mobile, that same wrapper becomes a real collapsible panel that the
-    hamburger button shows/hides via the small script at the bottom of
-    this file (vanilla JS, no jQuery).
-  {%- endcomment -%}
-  <div class="gift-banner__topbar">
-
-    <button
-      type="button"
-      class="gift-banner__hamburger"
-      data-menu-toggle
-      aria-expanded="false"
-      aria-controls="GiftBannerMenu-{{ section.id }}"
-      aria-label="Toggle menu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <a href="{{ routes.root_url }}" class="gift-banner__logo">
-      {{ section.settings.logo_text }}
-    </a>
-
-    <div class="gift-banner__menu-panel" id="GiftBannerMenu-{{ section.id }}" data-menu-panel>
-
-      {%- if section.settings.tagline_text != blank -%}
-        <p class="gift-banner__tagline">{{ section.settings.tagline_text }}</p>
-      {%- endif -%}
-
-      <div class="gift-banner__topbar-actions">
-        {%- if section.settings.choose_gift_label != blank -%}
+      {% if section.settings.button_label != blank %}
+        <div class="gift-banner__button-desktop">
           <a
-            href="{{ section.settings.choose_gift_link | default: '#' }}"
-            class="gift-banner__btn gift-banner__btn--accent"
-            style="
-              --btn-bg: {{ section.settings.choose_gift_bg }};
-              --btn-color: {{ section.settings.choose_gift_text_color }};
-            "
+            {% if section.settings.button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link }}"
+            {% endif %}
+            class="gift-banner__button"
           >
-            <span class="gift-banner__btn-label">{{ section.settings.choose_gift_label }}</span>
-            <span class="gift-banner__btn-arrow" aria-hidden="true">&rarr;</span>
+            {{ section.settings.button_label | escape }} →
           </a>
-        {%- endif -%}
-
-        <button type="button" class="gift-banner__menu-icon" aria-label="More options">
-          &#8942;
-        </button>
-      </div>
-
+        </div>
+      {% endif %}
     </div>
 
+    <div class="gift-banner__media">
+      {% if section.settings.image != blank %}
+        {{
+          section.settings.image
+          | image_url: width: 2000
+          | image_tag:
+            loading: 'lazy',
+            width: section.settings.image.width,
+            height: section.settings.image.height,
+            alt: section.settings.image.alt
+        }}
+      {% else %}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+
+      {% if section.settings.button_label != blank %}
+        <div class="gift-banner__button-mobile">
+          <a
+            {% if section.settings.button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link }}"
+            {% endif %}
+            class="gift-banner__button"
+          >
+            {{ section.settings.button_label | escape }} →
+          </a>
+        </div>
+      {% endif %}
+    </div>
   </div>
 
-  {%- comment -%} ── Hero: text block + visual (image + Shop Now overlay) ── {%- endcomment -%}
-  <div class="gift-banner__hero">
-
-    <div class="gift-banner__text">
-      {%- if section.settings.heading_text != blank -%}
-        <h1 class="gift-banner__heading">{{ section.settings.heading_text }}</h1>
-      {%- endif -%}
-
-      {%- if section.settings.description_text != blank -%}
-        <div class="gift-banner__description">{{ section.settings.description_text }}</div>
-      {%- endif -%}
+  {% if section.settings.footer_text != blank %}
+    <div class="gift-banner__footer-bar">
+      {{ section.settings.footer_text }}
     </div>
-
-    <div class="gift-banner__visual">
-      <div class="gift-banner__illustration">
-        {%- if section.settings.banner_image != blank -%}
-          {{
-            section.settings.banner_image
-            | image_url: width: 1800
-            | image_tag:
-              loading: 'eager',
-              fetchpriority: 'high',
-              alt: section.settings.heading_text,
-              class: 'gift-banner__illustration-img'
-          }}
-        {%- endif -%}
-      </div>
-
-      {%- if section.settings.shop_now_label != blank -%}
-        <a
-          href="{{ section.settings.shop_now_link | default: '#' }}"
-          class="gift-banner__btn gift-banner__btn--dark gift-banner__cta"
-          style="
-            --btn-bg: {{ section.settings.shop_now_bg }};
-            --btn-color: {{ section.settings.shop_now_text_color }};
-          "
-        >
-          <span class="gift-banner__btn-label">{{ section.settings.shop_now_label }}</span>
-          <span class="gift-banner__btn-arrow" aria-hidden="true">&rarr;</span>
-        </a>
-      {%- endif -%}
-    </div>
-
-  </div>
-
-  {%- comment -%} ── Footer strip ── {%- endcomment -%}
-  {%- if section.settings.bottom_text != blank -%}
-    <div class="gift-banner__footer">
-      <p class="gift-banner__footer-text">{{ section.settings.bottom_text }}</p>
-    </div>
-  {%- endif -%}
-
-</section>
-
-{%- comment -%}
-  Vanilla JS only (no jQuery). Toggles the mobile menu panel that holds
-  the tagline + Choose Gift button. Scoped so multiple Gift Banner
-  sections on one page won't interfere with each other.
-{%- endcomment -%}
-<script>
-  (function () {
-    'use strict';
-    var toggle = document.querySelector(
-      '[aria-controls="GiftBannerMenu-{{ section.id }}"]'
-    );
-    var panel = document.getElementById('GiftBannerMenu-{{ section.id }}');
-    if (!toggle || !panel) return;
-
-    toggle.addEventListener('click', function () {
-      var isOpen = panel.getAttribute('data-open') === 'true';
-      panel.setAttribute('data-open', String(!isOpen));
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-    });
-  })();
-</script>
+  {% endif %}
+</div>
 
 {% schema %}
 {
   "name": "Gift Banner",
   "tag": "section",
-  "class": "section-gift-banner",
+  "class": "section",
   "settings": [
     {
-      "type": "header",
-      "content": "Top bar"
-    },
-    {
       "type": "text",
-      "id": "logo_text",
-      "label": "Logo text",
-      "default": "TISSO VISON"
-    },
-    {
-      "type": "text",
-      "id": "tagline_text",
-      "label": "Tagline (hidden on mobile)",
-      "default": "Find the ideal gift for your loved ones."
-    },
-    {
-      "type": "text",
-      "id": "choose_gift_label",
-      "label": "Top button label (hidden on mobile)",
-      "default": "CHOOSE GIFT"
-    },
-    {
-      "type": "url",
-      "id": "choose_gift_link",
-      "label": "Top button link"
-    },
-    {
-      "type": "color",
-      "id": "choose_gift_bg",
-      "label": "Top button background",
-      "default": "#F4D935"
-    },
-    {
-      "type": "color",
-      "id": "choose_gift_text_color",
-      "label": "Top button text color",
-      "default": "#111111"
-    },
-    {
-      "type": "header",
-      "content": "Hero"
-    },
-    {
-      "type": "image_picker",
-      "id": "banner_image",
-      "label": "Illustration image"
-    },
-    {
-      "type": "text",
-      "id": "heading_text",
-      "label": "Heading",
-      "default": "The Gift Guide"
+      "id": "heading",
+      "default": "The Gift Guide",
+      "label": "Heading"
     },
     {
       "type": "richtext",
-      "id": "description_text",
-      "label": "Description",
-      "default": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>"
+      "id": "text",
+      "default": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner Image"
     },
     {
       "type": "text",
-      "id": "shop_now_label",
-      "label": "Bottom button label",
-      "default": "SHOP NOW"
+      "id": "button_label",
+      "default": "SHOP NOW",
+      "label": "Button Label"
     },
     {
       "type": "url",
-      "id": "shop_now_link",
-      "label": "Bottom button link"
-    },
-    {
-      "type": "color",
-      "id": "shop_now_bg",
-      "label": "Bottom button background",
-      "default": "#111111"
-    },
-    {
-      "type": "color",
-      "id": "shop_now_text_color",
-      "label": "Bottom button text color",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "header",
-      "content": "Footer strip"
+      "id": "button_link",
+      "label": "Button Link"
     },
     {
       "type": "text",
-      "id": "bottom_text",
-      "label": "Footer text",
-      "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
-    },
-    {
-      "type": "header",
-      "content": "Section"
-    },
-    {
-      "type": "color",
-      "id": "section_bg",
-      "label": "Section background",
-      "default": "#F4F4F4"
+      "id": "footer_text",
+      "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
+      "label": "Footer Banner Text"
     }
   ],
   "presets": [

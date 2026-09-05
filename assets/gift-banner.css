@@ -67,18 +67,64 @@
 }
 
 .gift-banner__button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background-color: #000000;
   color: #ffffff;
-  padding: 24px 32px;
+  padding: 14px 32px;
   text-decoration: none;
   font-size: 13px;
   letter-spacing: 1px;
   text-transform: uppercase;
   white-space: nowrap;
   width: fit-content;
+  overflow: hidden;
+  z-index: 1;
+  border: 1px solid #000000;
+  transition: color 0.35s ease;
+}
+
+/* Background Transition (Left to Right) */
+.gift-banner__button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff200;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Arrow Setup (Hidden by Default) */
+.gift-banner__button-arrow {
+  display: inline-block;
+  opacity: 0;
+  max-width: 0;
+  margin-left: 0;
+  transform: translateX(-6px);
+  transition: max-width 0.35s ease, opacity 0.25s ease, transform 0.35s ease, margin-left 0.35s ease;
+}
+
+/* Hover State Effects */
+.gift-banner__button:hover {
+  color: #000000;
+}
+
+.gift-banner__button:hover::before {
+  transform: scaleX(1);
+}
+
+.gift-banner__button:hover .gift-banner__button-arrow {
+  opacity: 1;
+  max-width: 20px;
+  margin-left: 8px;
+  transform: translateX(0);
 }
 
 .gift-banner__footer-bar {

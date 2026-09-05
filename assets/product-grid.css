@@ -1,47 +1,45 @@
-/* STREAMING_CHUNK:Styling product grid layout... /
-/ product-grid.css
-Scratch-built styles matching Image 2 */
-
+/* ── Product Grid Base Layout (Desktop) ─────────────────── */
 .product-grid {
   width: 100%;
-  max-width: 100%
-  margin: auto;
-  padding: 20px 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
   box-sizing: border-box;
 }
 
 .product-grid__heading {
-text-align: center;
-font-size: 28px;
-margin: 0 0 32px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 32px 0;
 }
 
 .product-grid__items {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 16px;
-max-width: 100%;
-margin: 0 40px;
-
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .product-grid__item {
-position: relative;
+  position: relative;
+  width: 100%;
 }
 
 .product-grid__image-wrap {
-position: relative;
-width: 100%;
-aspect-ratio: 1 / 1;
-overflow: hidden;
-background-color: #f2f2f2;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #f2f2f2;
 }
 
 .product-grid__image {
-width: 100%;
-height: 100%;
-object-fit: cover;
-display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .product-grid__plus-btn {
@@ -69,332 +67,296 @@ display: block;
   background-color: #ffffff;
 }
 
-/* STREAMING_CHUNK:Styling modal popup overlay and dialog container... /
-/ ── Popup / Modal ───────────────────────────────────────── */
-
+/* ── Popup / Modal Layout ───────────────────────────────── */
 .product-modal {
-position: fixed;
-inset: 0;
-z-index: 1000;
-display: none;
-align-items: center;
-justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-modal[data-open="true"] {
-display: flex;
+  display: flex;
 }
 
 .product-modal__overlay {
-position: fixed;
-inset: 0;
-background-color: rgba(0, 0, 0, 0.4);
-backdrop-filter: blur(2px);
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
 }
 
 .product-modal__dialog {
-position: relative;
-z-index: 10;
-background: #ffffff;
-width: 100%;
-max-width: 440px;
-margin: 20px;
-max-height: 90vh;
-overflow-y: auto;
-padding: 32px 24px 24px 24px;
-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-box-sizing: border-box;
-font-family: inherit;
+  position: relative;
+  z-index: 10;
+  background: #ffffff;
+  width: calc(100% - 32px);
+  max-width: 440px;
+  margin: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px 24px 24px 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  font-family: inherit;
 }
 
 .product-modal__close {
-position: absolute;
-top: 12px;
-right: 16px;
-background: transparent;
-border: none;
-font-size: 24px;
-cursor: pointer;
-line-height: 1;
-color: #000000;
-padding: 4px;
-transition: opacity 0.2s ease;
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  color: #000000;
+  padding: 4px;
+  transition: opacity 0.2s ease;
 }
 
 .product-modal__close:hover {
-opacity: 0.6;
+  opacity: 0.6;
 }
 
-/* STREAMING_CHUNK:Styling modal product details (top split)... /
-/ ── Modal Product Details ───────────────────────────────── */
-
+/* ── Modal Product Details ───────────────────────────────── */
 .product-modal__top-section {
-display: flex;
-gap: 16px;
-align-items: flex-start;
-margin-bottom: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 
 .product-modal__media {
-width: 150px;
-height: 150px;
-flex-shrink: 0;
-background-color: #f7f7f7;
-overflow: hidden;
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  background-color: #f7f7f7;
+  overflow: hidden;
 }
 
 .product-modal__image {
-width: 100%;
-height: 100%;
-object-fit: cover;
-display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .product-modal__info {
-flex: 1;
-display: flex;
-flex-direction: column;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-modal__title {
-margin: 0 0 8px 0;
-font-size: 20px;
-font-weight: 300;
-line-height: 1.25;
-color: #1a1a1a;
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #1a1a1a;
 }
 
 .product-modal__price {
-margin: 0 0 10px 0;
-font-size: 18px;
-font-weight: 400;
-color: #1a1a1a;
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a1a;
 }
 
 .product-modal__description {
-font-size: 13px;
-line-height: 1.45;
-color: #4a4a4a;
-font-weight: 300;
-margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #4a4a4a;
+  font-weight: 300;
+  margin: 0;
 }
 
-/* STREAMING_CHUNK:Styling option selectors, dropdown, and add to cart button... /
-/ ── Option Selectors ────────────────────────────────────── */
-
+/* ── Option Selectors ────────────────────────────────────── */
 .product-modal__options {
-display: flex;
-flex-direction: column;
-gap: 16px;
-margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
 .product-modal__option {
-display: flex;
-flex-direction: column;
-gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .product-modal__option-label {
-font-size: 14px;
-font-weight: 400;
-color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 400;
+  color: #1a1a1a;
 }
 
-/* Color Option Buttons (Side-by-side bordered container matching Image 2) */
 .product-modal__option-values {
-display: flex;
-width: 100%;
-border: 1px solid #000000;
-box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  border: 1px solid #000000;
+  box-sizing: border-box;
 }
 
 .product-modal__option-value {
-flex: 1;
-height: 44px;
-border: none;
-background: #ffffff;
-color: #000000;
-font-size: 18px;
-font-weight: 400;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: background-color 0.15s ease, color 0.15s ease;
-border-right: 1px solid #000000;
+  flex: 1;
+  height: 40px;
+  border: none;
+  background: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  border-right: 1px solid #000000;
 }
 
 .product-modal__option-value:last-child {
-border-right: none;
+  border-right: none;
 }
 
 .product-modal__option-value[data-selected="true"] {
-background-color: #000000;
-color: #ffffff;
+  background-color: #000000;
+  color: #ffffff;
 }
 
-/* Size Dropdown Box */
 .product-modal__select-wrap {
-position: relative;
-width: 100%;
-display: flex;
-align-items: center;
-border: 1px solid #000000;
-height: 44px;
-background: #ffffff;
-box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #000000;
+  height: 40px;
+  background: #ffffff;
+  box-sizing: border-box;
 }
 
 .product-modal__select {
-width: 100%;
-height: 100%;
-border: none;
-background: transparent;
-padding: 0 44px 0 16px;
-font-size: 16px;
-color: #1a1a1a;
-appearance: none;
--webkit-appearance: none;
-cursor: pointer;
-outline: none;
-font-family: inherit;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  padding: 0 40px 0 14px;
+  font-size: 14px;
+  color: #1a1a1a;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
 }
 
 .product-modal__select-arrow {
-position: absolute;
-right: 0;
-top: 0;
-bottom: 0;
-width: 44px;
-border-left: 1px solid #000000;
-display: flex;
-align-items: center;
-justify-content: center;
-pointer-events: none;
-color: #000000;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  border-left: 1px solid #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: #000000;
 }
 
-/* Add to Cart Button */
 .product-modal__add-to-cart {
-width: 100%;
-height: 48px;
-background-color: #000000;
-color: #ffffff;
-border: none;
-padding: 0 24px;
-font-size: 15px;
-font-weight: 400;
-letter-spacing: 1px;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: space-between;
-transition: opacity 0.2s ease;
-box-sizing: border-box;
+  width: 100%;
+  height: 44px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: opacity 0.2s ease;
+  box-sizing: border-box;
 }
 
 .product-modal__add-to-cart:hover:not(:disabled) {
-opacity: 0.9;
+  opacity: 0.9;
 }
 
 .product-modal__add-to-cart:disabled {
-opacity: 0.5;
-cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .product-modal__add-arrow {
-font-size: 20px;
-line-height: 1;
-font-weight: 300;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 300;
 }
 
 .product-modal__message {
-min-height: 20px;
-font-size: 13px;
-margin-top: 10px;
-text-align: center;
-color: #111111;
+  min-height: 20px;
+  font-size: 13px;
+  margin-top: 10px;
+  text-align: center;
+  color: #111111;
 }
 
-@media screen and (max-width: 600px) {
-.product-grid__items {
-grid-template-columns: repeat(2, 1fr);
-}
-
-.product-modal__dialog {
-padding: 24px 18px 20px 18px;
-margin: 12px;
-}
-
-/* Mobile Viewport Styling (< 750px) */
+/* ── Mobile Viewport Overhaul (< 750px) ─────────────────── */
 @media screen and (max-width: 749px) {
-  .product-grid-section,
   .product-grid {
-    padding: 30px 16px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+    padding: 24px 16px;
   }
 
-  /* Centered Title */
-  .product-grid__heading,
-  .product-grid-section__title,
-  .product-grid h2 {
-    text-align: center !important;
-    font-family: inherit;
-    font-size: 26px !important;
-    font-weight: 400 !important;
-    margin: 0 0 24px 0 !important;
-    width: 100% !important;
+  .product-grid__heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
   }
 
   /* 2-Column Mobile Grid */
-  .product-grid__items,
-  .product-grid__container,
-  .product-grid__wrapper {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-    width: 100% !important;
+  .product-grid__items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 0;
   }
 
-  .product-grid__item,
-  .product-grid__card {
-    position: relative !important;
-    width: 100% !important;
-    aspect-ratio: 4 / 5 !important;
-    overflow: hidden !important;
+  /* Scaled down hotspot icon for mobile */
+  .product-grid__plus-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 13px;
+    border-width: 1px;
   }
 
-  .product-grid__item img,
-  .product-grid__card img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
+  /* Centered Modal Popup on Mobile */
+  .product-modal {
+    padding: 16px;
+    box-sizing: border-box;
   }
 
-  /* Compact Hotspot Plus Button */
-  .product-grid__hotspot,
-  .hotspot-btn,
-  .hotspot-button {
-    width: 22px !important;
-    height: 22px !important;
-    min-width: 22px !important;
-    min-height: 22px !important;
-    border-radius: 50% !important;
-    background: rgba(255, 255, 255, 0.85) !important;
-    color: #000000 !important;
-    border: none !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    line-height: 1 !important;
-    padding: 0 !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) !important;
-    cursor: pointer !important;
-    z-index: 2 !important;
+  .product-modal__dialog {
+    width: 100%;
+    max-width: 360px;
+    padding: 24px 18px 20px 18px;
+    margin: auto;
+    border-radius: 0;
+  }
+
+  .product-modal__media {
+    width: 100px;
+    height: 100px;
+  }
+
+  .product-modal__title {
+    font-size: 16px;
+  }
+
+  .product-modal__price {
+    font-size: 15px;
   }
 }

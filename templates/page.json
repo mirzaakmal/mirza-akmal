@@ -33,6 +33,16 @@
         "padding-block-end": 80
       }
     },
+    "header_custom_QmQWWN": {
+      "type": "header-custom",
+      "name": "Custom Header",
+      "settings": {
+        "logo_text": "TISSO VISON",
+        "center_text": "Find the ideal gift for your loved ones.",
+        "button_label": "CHOOSE GIFT",
+        "button_link": ""
+      }
+    },
     "gift_banner_kha4Km": {
       "type": "gift-banner",
       "custom_css": [],
@@ -245,6 +255,7 @@
         "group_CmRyXg",
         "group_r7NBqG"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "t:names.split_showcase",
       "settings": {
@@ -692,16 +703,6 @@
         "linked_product": "dark-winter-jacket",
         "linked_trigger_option_a": "Black",
         "linked_trigger_option_b": "Medium"
-      }
-    },
-    "header_custom_QmQWWN": {
-      "type": "header-custom",
-      "name": "Custom Header",
-      "settings": {
-        "logo_text": "TISSO VISON",
-        "center_text": "Find the ideal gift for your loved ones.",
-        "button_label": "CHOOSE GIFT",
-        "button_link": ""
       }
     }
   },

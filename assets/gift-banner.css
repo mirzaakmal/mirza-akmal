@@ -146,9 +146,8 @@
     width: 100%;
   }
 
-  /* Controlled image height on desktop */
   .gift-banner__media img {
-    height: 650px; /* Adjust height limit as needed */
+    height: 520px;
     object-fit: cover;
   }
 
@@ -160,21 +159,25 @@
     transform: none;
     z-index: 2;
     text-align: left;
-    max-width: 420px;
-    padding: 0 0 0 50px; /* 50px padding from left edge */
+    max-width: 450px;
+    padding: 0 0 0 50px;
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
 
+  /* Heading 70px */
   .gift-banner__heading {
-    font-size: 40px;
+    font-size: 70px;
+    line-height: 1.1;
     margin: 0;
   }
 
+  /* Paragraph 20px */
   .gift-banner__text {
     margin: 0;
-    font-size: 15px;
+    font-size: 20px;
+    line-height: 1.4;
     max-width: 100%;
   }
 
@@ -185,4 +188,12 @@
   .gift-banner__button-desktop {
     display: block;
   }
+}
+
+/* Button Sizing Across Desktop & Mobile */
+.gift-banner__button {
+  width: 183px;
+  height: 45px;
+  padding: 0;
+  box-sizing: border-box;
 }

@@ -1,64 +1,61 @@
 .custom-header {
   width: 100%;
-  background-color: #f5f5f5; /* Light gray background matching reference */
+  background-color: #f5f5f5;
   border-bottom: 1px solid #e5e5e5;
-  padding: 10px 20px;
-  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
 }
 
 .custom-header__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 14px 24px;
   width: 100%;
-  max-width: 100%;
+  box-sizing: border-box;
 }
 
-/* Left Logo */
+/* Logo Styling (No Border) */
 .custom-header__logo a {
   text-decoration: none;
-  color: #000000;
 }
 
 .custom-header__logo-text {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  border: 1px solid #000000;
-  padding: 4px 8px;
+  color: #000000;
+  border: none !important;
+  outline: none !important;
+  padding: 0;
   display: inline-block;
 }
 
 /* Center Text */
 .custom-header__center {
   text-align: center;
-  flex: 1;
 }
 
 .custom-header__announcement {
   margin: 0;
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: 400;
   color: #000000;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
-/* Right Button */
-.custom-header__right {
-  display: flex;
-  justify-content: flex-end;
-}
-
+/* Yellow Button Styling */
 .custom-header__btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: #fff200; /* Signature yellow background */
+  background-color: #fff200;
   color: #000000;
-  padding: 8px 16px;
+  padding: 8px 18px;
   text-decoration: none;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   border: 1px solid #000000;
@@ -69,9 +66,72 @@
   opacity: 0.85;
 }
 
-/* Responsive Hide for Center Text on Small Screens */
+/* Hamburger Toggle Button - HIDDEN ON DESKTOP */
+.custom-header__mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #000000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hide Mobile Drawer on Desktop Completely */
+.custom-header__mobile-drawer {
+  display: none !important;
+}
+
+/* Mobile Responsiveness (< 750px) */
 @media screen and (max-width: 749px) {
-  .custom-header__center {
+  .custom-header__mobile-toggle {
+    display: flex;
+  }
+
+  .custom-header__center,
+  .custom-header__right {
     display: none;
+  }
+
+  .custom-header__mobile-drawer {
+    display: block !important;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-top: 1px solid #e5e5e5;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .custom-header__mobile-drawer.is-open {
+    max-height: 250px;
+  }
+
+  .custom-header__mobile-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .custom-header__mobile-announcement {
+    margin: 0;
+    font-size: 15px;
+    color: #000000;
+  }
+
+  .custom-header__btn--mobile {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
   }
 }

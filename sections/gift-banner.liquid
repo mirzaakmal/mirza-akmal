@@ -48,16 +48,17 @@
 
       {% if section.settings.button_label != blank %}
         <div class="gift-banner__button-mobile">
-          <a
-            {% if section.settings.button_link == blank %}
-              role="link" aria-disabled="true"
-            {% else %}
-              href="{{ section.settings.button_link }}"
-            {% endif %}
-            class="gift-banner__button"
-          >
-            {{ section.settings.button_label | escape }} →
-          </a>
+        <a
+  {% if section.settings.button_link == blank %}
+    role="link" aria-disabled="true"
+  {% else %}
+    href="{{ section.settings.button_link }}"
+  {% endif %}
+  class="gift-banner__button"
+>
+  <span>{{ section.settings.button_label | escape }}</span>
+  <span class="gift-banner__button-arrow">→</span>
+</a>
         </div>
       {% endif %}
     </div>

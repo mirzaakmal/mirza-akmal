@@ -47,6 +47,13 @@
   white-space: nowrap;
 }
 
+/* On desktop this wrapper is invisible to layout: its children
+   (tagline + actions) become direct flex items of .gift-banner__topbar,
+   preserving the original left/center/right layout exactly. */
+.gift-banner__menu-panel {
+  display: contents;
+}
+
 .gift-banner__tagline {
   margin: 0;
   font-size: 14px;
@@ -199,18 +206,55 @@
 @media screen and (max-width: 749px) {
 
   .gift-banner__topbar {
+    flex-wrap: wrap;
     justify-content: flex-start;
     gap: 12px;
-    padding: 16px 20px;
+    padding: 14px 20px;
+    position: relative;
   }
 
   .gift-banner__hamburger {
     display: flex;
   }
 
-  .gift-banner__tagline,
-  .gift-banner__topbar-actions {
+  .gift-banner__logo {
+    flex: 1;
+    text-align: center;
+    padding-right: 24px; /* visually balances the hamburger's width */
+  }
+
+  /* The panel stops being `display: contents` on mobile and becomes a
+     real collapsible block containing the tagline + Choose Gift button,
+     toggled open/closed by the hamburger via the [data-open] attribute. */
+  .gift-banner__menu-panel {
     display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    width: 100%;
+    order: 3;
+    padding-top: 14px;
+  }
+
+  .gift-banner__menu-panel[data-open="true"] {
+    display: flex;
+  }
+
+  .gift-banner__tagline {
+    text-align: left;
+    white-space: normal;
+    flex: none;
+  }
+
+  .gift-banner__topbar-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .gift-banner__menu-icon {
+    display: none; /* redundant with the hamburger on mobile */
   }
 
   .gift-banner__hero {
@@ -252,4 +296,3 @@
     font-size: 11px;
   }
 }
-

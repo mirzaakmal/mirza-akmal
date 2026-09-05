@@ -141,6 +141,16 @@
 
 /* Desktop Layout */
 @media screen and (min-width: 750px) {
+  .gift-banner__container {
+    display: block;
+    width: 100%;
+  }
+
+  .gift-banner__media img {
+    height: 520px;
+    object-fit: cover;
+  }
+
   .gift-banner__content {
     position: absolute;
     bottom: 50px;
@@ -149,29 +159,27 @@
     transform: none;
     z-index: 2;
     text-align: left;
-    max-width: 650px; /* Expanded width to give text space */
+    max-width: 450px;
     padding: 0 0 0 50px;
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
 
-  /* Heading forces onto 1 line */
+  /* Heading 70px */
   .gift-banner__heading {
     font-size: 70px;
     line-height: 1.1;
     margin: 0;
-    white-space: nowrap; /* Prevents wrapping */
   }
 
-  /* Paragraph width constrained so body text looks neat */
+  /* Paragraph 20px */
   .gift-banner__text {
     margin: 0;
     font-size: 20px;
     line-height: 1.4;
-    max-width: 500px;
+    max-width: 100%;
   }
-
 
   .gift-banner__button-mobile {
     display: none;
@@ -180,7 +188,7 @@
   .gift-banner__button-desktop {
     display: block;
   }
-
+}
 
 /* Button Sizing Across Desktop & Mobile */
 .gift-banner__button {

@@ -52,8 +52,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: #000000; /* Dark base color */
-  color: #ffffff;            /* White initial text */
+  background-color: #fff200; /* Dark base color */
+  color: #000000;            /* White initial text */
   width: 183px;              /* Updated width */
   height: 45px;              /* Updated height */
   padding: 8px 18px;
@@ -99,7 +99,7 @@
   display: inline-block;
   opacity: 1;                 /* Fully visible initially */
   max-width: 20px;            /* Always takes up space */
-  color: #ffffff;             /* Matches white text before hover */
+  color: #000000;             /* Matches white text before hover */
   margin-left: 6px;
   transform: translateX(0);
   transition: transform 0.35s ease, color 0.35s ease;
@@ -107,7 +107,7 @@
 
 /* Arrow Hover Shift */
 .custom-header__btn:hover .custom-header__btn-arrow {
-  color: #000000;             /* Turns black with hover text */
+  color: #ffffff;             /* Turns black with hover text */
   transform: translateX(4px);  /* Subtle nudge to the right on hover */
 }
 

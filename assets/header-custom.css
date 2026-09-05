@@ -92,8 +92,21 @@
 
 /* Mobile Responsiveness (< 750px) */
 @media screen and (max-width: 749px) {
+  .custom-header__container {
+    position: relative;
+    justify-content: flex-start;
+  }
+
   .custom-header__mobile-toggle {
     display: flex;
+    z-index: 2;
+  }
+
+  /* Perfectly centers logo on mobile viewport */
+  .custom-header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .custom-header__center,

@@ -54,10 +54,11 @@
   color: #000000;
   width: 150px;
   height: 40px;
-  padding: 8px 10px;
+  padding: 8px 18px;
   text-decoration: none;
   font-size: 11px;
   font-weight: 525;
+  font-family: jost;
   letter-spacing: 1px;
   text-transform: uppercase;
   border: none;

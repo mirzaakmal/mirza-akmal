@@ -169,6 +169,7 @@
   /* Heading 70px */
   .gift-banner__heading {
     font-size: 70px;
+    width: 100%;
     line-height: 1.1;
     margin: 0;
   }
@@ -194,6 +195,6 @@
 .gift-banner__button {
   width: 183px;
   height: 45px;
-  padding: 0;
+  padding: 0 20px;
   box-sizing: border-box;
 }

@@ -199,6 +199,6 @@
 .gift-banner__button {
   width: 183px;
   height: 45px;
-  padding: 20px 20px;
+  padding: 0 20px;
   box-sizing: border-box;
 }

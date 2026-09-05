@@ -69,7 +69,7 @@
   display: inline-block;
   opacity: 0;
   max-width: 0;
-  color: #000000;
+  color: #ffffff;
   margin-left: 0;
   transform: translateX(-6px);
   transition: max-width 0.35s ease, opacity 0.25s ease, transform 0.35s ease, margin-left 0.35s ease;

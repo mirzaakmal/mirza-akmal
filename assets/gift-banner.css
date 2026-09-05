@@ -171,7 +171,7 @@
     line-height: 1.4;
     max-width: 500px;
   }
-}
+
 
   .gift-banner__button-mobile {
     display: none;
@@ -180,7 +180,7 @@
   .gift-banner__button-desktop {
     display: block;
   }
-}
+
 
 /* Button Sizing Across Desktop & Mobile */
 .gift-banner__button {

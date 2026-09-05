@@ -724,50 +724,31 @@
     }
   }
 
-  /* Completely Restructured Mobile Layout */
+/* Mobile Layout - Full Width Image & Clean Flow */
   @media screen and (max-width: 749px) {
-    /* 1. Stack container as grid so we can explicitly order content, media, and button */
+    /* 1. Main Container Setup */
     .hero__container {
-      display: grid !important;
-      grid-template-columns: 1fr !important;
-      grid-template-rows: auto auto auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      width: 100% !important;
       background-color: #ffffff !important;
-      min-height: auto !important;
-      position: relative !important;
       padding: 30px 0 40px 0 !important;
+      min-height: auto !important;
+      height: auto !important;
       overflow: visible !important;
     }
 
-    /* 2. Media image sits in row 2 */
-    .hero__media-grid {
-      position: relative !important;
-      inset: auto !important;
-      grid-row: 2 !important;
-      width: 100% !important;
-      height: auto !important;
-      z-index: 1 !important;
-      margin: 15px 0 0 0 !important;
-    }
-
-    .hero__media {
-      height: auto !important;
-      width: 100% !important;
-      display: block !important;
-    }
-
-    /* 3. Text content wrapper stays in row 1 */
+    /* 2. Text Content Block */
     .hero__content-wrapper {
       position: relative !important;
-      grid-row: 1 !important;
       width: 100% !important;
       padding: 0 20px !important;
       text-align: center !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
-      background: transparent !important;
       z-index: 2 !important;
-      inset: auto !important;
     }
 
     .hero__content-wrapper h1,
@@ -788,21 +769,47 @@
       color: #1a1a1a !important;
       text-align: center !important;
       max-width: 260px !important;
-      margin: 0 auto 0 auto !important;
+      margin: 0 auto 20px auto !important;
     }
 
-    /* 4. Pull button out into Row 3 or overlay it using subgrid/negative margin */
-    .hero__content-wrapper :is(.button-block, a.button, .btn, [class*="button"], [data-block-type="button"]) {
-      position: absolute !important;
-      top: 100% !important;
-      left: 50% !important;
-      transform: translate(-50%, 120px) !important;
-      z-index: 10 !important;
+    /* 3. Button Styling & Flow */
+    .hero__content-wrapper a,
+    .hero__content-wrapper .btn,
+    .hero__content-wrapper [class*="button"] {
+      position: relative !important;
+      transform: none !important;
+      top: auto !important;
+      left: auto !important;
+      margin: 0 0 24px 0 !important;
       background-color: #000000 !important;
       color: #ffffff !important;
       padding: 14px 32px !important;
-      white-space: nowrap !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: auto !important;
+    }
+
+    /* 4. Restore Media Grid to Full Width */
+    .hero__media-grid {
+      position: relative !important;
+      inset: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      z-index: 1 !important;
       margin: 0 !important;
+      display: block !important;
+    }
+
+    .hero__media-grid img,
+    .hero__media-grid svg,
+    .hero__media {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      object-fit: cover !important;
+      display: block !important;
     }
   }
 {% endstylesheet %}

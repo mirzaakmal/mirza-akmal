@@ -52,6 +52,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin: 0 0 0 50px;
   background-color: #fff200; /* Dark base color */
   color: #000000;            /* White initial text */
   width: 183px;              /* Updated width */
@@ -120,7 +121,6 @@
   padding: 4px;
   flex-direction: column;
   gap: 5px;
-  margin: 0 0 0 30px;
 }
 
 .hamburger-bar {

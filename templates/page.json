@@ -35,9 +35,7 @@
     },
     "gift_banner_kha4Km": {
       "type": "gift-banner",
-      "custom_css": [
-        "h2 {font-size: 70px;}"
-      ],
+      "custom_css": [],
       "name": "Gift Banner",
       "settings": {
         "heading": "The Gift Guide",

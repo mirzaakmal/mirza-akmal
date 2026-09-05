@@ -159,27 +159,29 @@
     transform: none;
     z-index: 2;
     text-align: left;
-    max-width: 450px;
+    max-width: 650px; /* Expanded width to give text space */
     padding: 0 0 0 50px;
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
 
-  /* Heading 70px */
+  /* Heading forces onto 1 line */
   .gift-banner__heading {
     font-size: 70px;
     line-height: 1.1;
     margin: 0;
+    white-space: nowrap; /* Prevents wrapping */
   }
 
-  /* Paragraph 20px */
+  /* Paragraph width constrained so body text looks neat */
   .gift-banner__text {
     margin: 0;
     font-size: 20px;
     line-height: 1.4;
-    max-width: 100%;
+    max-width: 500px;
   }
+
 
   .gift-banner__button-mobile {
     display: none;

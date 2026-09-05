@@ -10,9 +10,6 @@
   assign has_only_video_mobile = false
 
   # Desktop media checks
-  # For each media slot, check if the media is not blank and the media type matches the slot
-  # Need to check both (1) media picker is not blank AND (2) section.setting.media_type because user can toggle between different media types to display, but choosing "Image" doesn't clear a saved "Video" in the theme editor.
-  # The alternate setting (section.settings.image_1 when "Video" is selected) is only visually hidden in theme editor.
   if section.settings.image_1 != blank and section.settings.media_type_1 == 'image'
     assign media_1 = 'image'
     assign media_count = media_count | plus: 1
@@ -31,8 +28,6 @@
   endif
 
   if section.settings.custom_mobile_media
-    # Mobile media checks
-    # For each media slot, check if the media is not blank and the media type matches the slot
     if section.settings.image_1_mobile != blank and section.settings.media_type_1_mobile == 'image'
       assign media_1_mobile = 'image'
       assign media_count_mobile = media_count_mobile | plus: 1
@@ -59,22 +54,17 @@
 
   assign media_wrapper_desktop_class = 'hero__media-wrapper hero__media-wrapper--desktop'
   assign media_wrapper_mobile_class = 'hero__media-wrapper hero__media-wrapper--mobile'
-  # If there is no custom mobile media to show, we add the mobile class to the desktop classes so content is always shown on mobile.
   if section.settings.custom_mobile_media == false or section.settings.custom_mobile_media == true and media_count_mobile == 0
     assign media_wrapper_desktop_class = media_wrapper_desktop_class | append: ' hero__media-wrapper--mobile'
   endif
 
-  # Should we show the blurred reflection on mobile?
   assign show_mobile_blurred_reflection = false
   if section.settings.blurred_reflection
     if section.settings.custom_mobile_media == true and media_count_mobile > 0 and has_only_video_mobile == false
-      # Custom mobile media is active and a mobile image is present
       assign show_mobile_blurred_reflection = true
     elsif section.settings.custom_mobile_media == true and media_count_mobile == 0 and media_count > 0 and has_only_video == false
-      # Custom mobile media is active, no mobile media is present, but a desktop image is present
       assign show_mobile_blurred_reflection = true
     elsif section.settings.custom_mobile_media == false and media_count > 0 and has_only_video == false
-      # Custom mobile media is inactive, but a desktop image is present
       assign show_mobile_blurred_reflection = true
     endif
   endif
@@ -85,7 +75,6 @@
     assign media_width_desktop = '100vw'
   endif
 
-  # If custom mobile media is disabled or no mobile media is present, we need to fallback to desktop media.
   if section.settings.custom_mobile_media == false or media_count_mobile == 0 or media_count == 0
     assign media_count_mobile = media_count
     assign fallback_to_desktop = true
@@ -114,7 +103,6 @@
 
 {% capture media_slot_1 %}
   {%- if media_1 == 'image' and media_1_mobile == 'image' -%}
-    {%- comment -%} Both desktop and mobile are images. Assume similar images, and this is art direction: use picture element. {%- endcomment -%}
     <picture
       data-testid="hero-picture-1"
       class="hero__media"
@@ -178,7 +166,6 @@
     </div>
   {%- endif -%}
 
-  {%- comment -%} Mobile-only slot 1 media (when desktop is different type) {%- endcomment -%}
   {%- if media_count > 0 and media_count_mobile > 0 -%}
     {%- if media_1_mobile == 'image' and media_1 != 'image' -%}
       <div class="{{ media_wrapper_mobile_class }}">
@@ -218,7 +205,6 @@
 
 {% capture media_slot_2 %}
   {%- if media_2 == 'image' and media_2_mobile == 'image' -%}
-    {%- comment -%} Both desktop and mobile are images. Assume this is art direction: use picture element.  {%- endcomment -%}
     <picture
       class="hero__media"
       data-testid="hero-picture-2"
@@ -282,7 +268,6 @@
     </div>
   {%- endif -%}
 
-  {%- comment -%} Mobile-only slot 2 media (when desktop is different type) {%- endcomment -%}
   {%- if media_count > 0 and media_count_mobile > 0 -%}
     {%- if media_2_mobile == 'image' and media_2 != 'image' -%}
       <div class="{{ media_wrapper_mobile_class }}">
@@ -362,11 +347,6 @@
 {% endcapture %}
 
 {% capture mobile_media_blurred %}
-  {%- comment -%}
-    On mobile we need to check:
-    1. If the media should be stacked. If it is,we check for the second (bottom) image first, then for the first (top) image.
-    2. If custom mobile setting is active and has media (show desktop media otherwise).
-  {%- endcomment -%}
   {% if section.settings.stack_media_on_mobile == false %}
     {% if section.settings.custom_mobile_media == true and fallback_to_desktop == false %}
       {% if media_1_mobile == 'image' %}
@@ -454,7 +434,6 @@
   endif
 -%}
 
-{% # A first-section hero consumes `--header-group-height` at first paint (`.hero-wrapper:first-child` rule below) %}
 {% render 'measure-header-heights', only_when_first_section: true %}
 
 <div
@@ -498,11 +477,6 @@
       </div>
     {% endif %}
   {% endif %}
-
-  {% comment %}
-    Hardcoded to section--full-width bc the media has to be full width in all cases.
-    hero__content-wrapper applies section_width.
-  {% endcomment %}
 
   <div
     class="hero__container spacing-style section section--full-width"
@@ -551,7 +525,6 @@
     --hero-height-offset: 0px;
   }
 
-  /* Being extra specific in the selector for performance reasons */
   body:has(#header-group > .header-section > #header-component) .hero-wrapper:first-child {
     --hero-height-offset: var(--header-group-height, 0);
   }
@@ -563,7 +536,6 @@
 
   .hero[data-shopify-visual-preview] {
     --hero-min-height: 600px;
-
     min-height: 600px;
   }
 
@@ -614,7 +586,6 @@
     }
 
     .hero__media-grid {
-      /* When there are no blocks and the height is auto, allow the image to appear. */
       position: relative;
     }
   }
@@ -633,8 +604,6 @@
     position: relative;
     z-index: var(--layer-base);
   }
-
-  /* Mobile/Desktop media visibility */
 
   .hero__media-wrapper--mobile {
     display: none;
@@ -657,7 +626,6 @@
       grid-template-columns: repeat(var(--hero-media-count-mobile, 1), 1fr);
     }
 
-    /* Mobile stacking */
     .hero--stack-mobile .hero__media-grid {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(var(--hero-media-count-mobile, 1), calc(100% / var(--hero-media-count-mobile, 1)));
@@ -678,11 +646,6 @@
       pointer-events: auto;
     }
 
-    /*
-     * App blocks own their interactive markup, and an app is free to render it into a shadow
-     * root that no selector here can reach. Restoring pointer events on the app block wrapper
-     * covers both cases, because pointer-events inherits into the shadow tree.
-     */
     .shopify-app-block {
       pointer-events: auto;
     }
@@ -761,7 +724,7 @@
     }
   }
 
-  /* Target exact theme classes for mobile prototype match */
+  /* Updated Mobile Specific Layout */
   @media screen and (max-width: 749px) {
     .hero__container {
       display: flex !important;
@@ -769,26 +732,29 @@
       align-items: center !important;
       background-color: #ffffff !important;
       min-height: auto !important;
+      position: relative !important;
+      padding-bottom: 30px !important;
     }
 
     .hero__content-wrapper {
       position: relative !important;
       order: 1 !important;
       width: 100% !important;
-      padding: 32px 20px 20px 20px !important;
+      padding: 36px 24px 16px 24px !important;
       text-align: center !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
       background: #ffffff !important;
-      z-index: 2 !important;
+      z-index: 1 !important;
     }
 
     .hero__content-wrapper h1,
     .hero__content-wrapper h2,
     .hero__content-wrapper [class*="heading"] {
-      font-size: 28px !important;
-      font-weight: 500 !important;
+      font-size: 30px !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.02em !important;
       color: #000000 !important;
       text-align: center !important;
       margin-bottom: 12px !important;
@@ -797,10 +763,11 @@
     .hero__content-wrapper p,
     .hero__content-wrapper [class*="text"] {
       font-size: 15px !important;
+      line-height: 1.4 !important;
       color: #1a1a1a !important;
       text-align: center !important;
-      max-width: 300px !important;
-      margin: 0 auto 16px auto !important;
+      max-width: 270px !important;
+      margin: 0 auto !important;
     }
 
     .hero__media-grid {
@@ -808,24 +775,31 @@
       order: 2 !important;
       width: 100% !important;
       height: auto !important;
+      z-index: 1 !important;
+      margin-top: 10px !important;
     }
 
     .hero__media {
       height: auto !important;
-      max-height: 380px !important;
+      width: 100% !important;
+      max-height: 340px !important;
       object-fit: contain !important;
+      display: block !important;
     }
 
     .hero__content-wrapper .button-block,
     .hero__content-wrapper a.button,
-    .hero__content-wrapper .btn {
+    .hero__content-wrapper .btn,
+    .hero__content-wrapper [class*="button"] {
       position: absolute !important;
-      top: calc(100% + 180px) !important;
+      bottom: -180px !important;
       left: 50% !important;
       transform: translateX(-50%) !important;
       z-index: 10 !important;
       background-color: #000000 !important;
       color: #ffffff !important;
+      padding: 14px 28px !important;
+      white-space: nowrap !important;
     }
   }
 {% endstylesheet %}

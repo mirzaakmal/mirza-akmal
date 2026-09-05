@@ -115,11 +115,11 @@
   }
 
   .custom-header__mobile-content {
-    padding: 20px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 16px;
     text-align: center;
   }
 
